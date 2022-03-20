@@ -41,4 +41,13 @@ class ArticleController extends Controller
         return redirect()->back()->with('message', 'article created succesfully!');
     }
 
+    public function delete(Request $request)
+    {   
+        $id = $request["id"];
+        $article = Article::findOrFail($id);
+        $article->comments()->delete();
+        Article::where('id', $id)->delete();
+        return redirect()->back();
+    }
+
 }

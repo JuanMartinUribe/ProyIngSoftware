@@ -5,15 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Comment;
 
-class CommentController extends Controller
+class CommentController extends Controller  
 {
 
-    public function create($relatedGameId,$relatedUserId)
+    public function delete(Request $request)
     {   
-        $viewData = [];
-        $viewData["relatedGameId"] = $relatedGameId;
-        $viewData["relatedUserId"] = $relatedUserId;
-        return view('article.create') -> with("viewData",$viewData);  
+        $id = $request["id"];
+        Comment::where('id', $id)->delete();
+        return redirect()->back();
     }
 
     public function save(Request $request)

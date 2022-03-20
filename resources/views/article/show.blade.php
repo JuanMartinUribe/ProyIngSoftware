@@ -20,7 +20,15 @@
           <div class="col-md-4 col-lg-3 mb-2">
             <div class="card">
               <div class="card-body text-center">
-              <p>user: {{$comment->getUser()["name"]}} <br> {{ $comment->getDescription() }} 
+              <p>user: {{$comment->getUser()["name"]}} <br> comment: {{ $comment->getDescription() }} 
+              @if($comment->getUser()["id"]==Auth::id())
+              {{$comment->getId()}}
+              <form method="post" action="{{ route('comment.delete',['id'=> $comment->getId()]) }}" >
+                  @csrf
+                <input type="submit" value="Delete Comment" />
+              </form>
+              <br>              
+              @endif
               </div>
             </div>
           </div>
