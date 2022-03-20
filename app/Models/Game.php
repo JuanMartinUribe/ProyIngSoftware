@@ -76,12 +76,12 @@ class Game extends Model
         return $this->hasMany(Article::class);
     }
 
-    public function getarticles()
+    public function getArticles()
     {
         return $this->articles;
     }
 
-    public function setarticles($articles)
+    public function setArticles($articles)
     {
         $this->articles = $articles;
     }   

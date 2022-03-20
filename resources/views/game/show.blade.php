@@ -16,8 +16,8 @@
         <p class="card-text">{{ $viewData["game"]->getPrice() }}</p>
         @foreach($viewData["game"]->articles as $article)
         <a class href="{{ route('article.show', ["id" => $article->getId()]) }}">- {{ $article->getName() }}<br /></a>
-          
         @endforeach
+
       </div>
     </div>
   </div>

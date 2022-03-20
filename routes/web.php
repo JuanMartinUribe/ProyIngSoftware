@@ -19,6 +19,7 @@ Route::get('/games','App\Http\Controllers\GameController@index')->name("game.ind
 Route::get('/games/showtopsellers','App\Http\Controllers\GameController@showTopSellers')->name("game.showtopsllers");
 Route::get('/games/{id}','App\Http\Controllers\GameController@show')->name("game.show");
 Route::get('/article/create/{relatedGameId}/{relatedUserId}','App\Http\Controllers\ArticleController@create')->name("article.create");
+Route::post('/comment/save','App\Http\Controllers\CommentController@save')->name("comment.save");
 Route::get('/articles/{id}','App\Http\Controllers\ArticleController@show')->name("article.show");   
 Route::post('/article/save','App\Http\Controllers\ArticleController@save')->name("article.save");
 

@@ -21,7 +21,8 @@ class ArticleController extends Controller
     {
         $viewData = [];
         $article = Article::findOrFail($id);
-        $viewData["article"] = $article;    
+        $viewData["article"] = $article;
+        $viewData["comments"] = $article->getComments();    
         return view('article.show') -> with("viewData",$viewData);
     }
 
