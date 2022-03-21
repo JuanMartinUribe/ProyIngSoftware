@@ -22,7 +22,6 @@
               <div class="card-body text-center">
               <p>user: {{$comment->getUser()["name"]}} <br> comment: {{ $comment->getDescription() }} 
               @if($comment->getUser()["id"]==Auth::id())
-              {{$comment->getId()}}
               <form method="post" action="{{ route('comment.delete',['id'=> $comment->getId()]) }}" >
                   @csrf
                 <input type="submit" value="Delete Comment" />
@@ -44,6 +43,4 @@
     </div>
   </div>
 </div>
-
-
 @endsection

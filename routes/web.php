@@ -19,11 +19,15 @@ Route::get('/games','App\Http\Controllers\GameController@index')->name("game.ind
 Route::get('/games/showtopsellers','App\Http\Controllers\GameController@showTopSellers')->name("game.showtopsllers");
 Route::get('/games/{id}','App\Http\Controllers\GameController@show')->name("game.show");
 Route::get('/article/create/{relatedGameId}/{relatedUserId}','App\Http\Controllers\ArticleController@create')->name("article.create");
-Route::get('/articles/{id}','App\Http\Controllers\ArticleController@show')->name("article.show");   
+Route::get('/articles/{id}','App\Http\Controllers\ArticleController@show')->name("article.show");  
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index");
+Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add"); 
+Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase");
 Route::post('/article/save','App\Http\Controllers\ArticleController@save')->name("article.save");
 Route::post('/comment/save','App\Http\Controllers\CommentController@save')->name("comment.save");
 Route::post('/comment/delete','App\Http\Controllers\CommentController@delete')->name("comment.delete");
 Route::post('/article/delete','App\Http\Controllers\ArticleController@delete')->name("article.delete");
+Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
 Auth::routes();
 
 
