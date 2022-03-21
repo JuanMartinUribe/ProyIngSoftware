@@ -18,7 +18,7 @@
         <h5 class="card-title">
            {{ $viewData["game"]->getName() }}
         </h5>
-        
+
         <b>Price</b>  : <p class="card-text">{{ $viewData["game"]->getPrice() }}</p>
         <b>Developed By</b>: <p class="card-text">{{ $viewData["game"]->getdeveloper() }}</p>
         <b>Game Description</b> : <p class="card-text">{{ $viewData["game"]->getDescription() }}</p>
@@ -34,9 +34,11 @@
               </form>
           @endif
         @endforeach
+        
       </div>
+      <a href="{{ route('cart.add', ['id'=> $viewData["game"]->getId() ]) }}">Add Game To Cart</a>
     </div>
-    <a href="{{ route('game.index') }}">Back</a>
   </div>
+  <a href="{{ route('game.index') }}">Back</a>
 </div>
 @endsection

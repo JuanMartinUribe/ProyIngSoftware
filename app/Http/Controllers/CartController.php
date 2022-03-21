@@ -38,14 +38,16 @@ class CartController extends Controller
         $games = $request->session()->get("games");
         $games[$id] = $id;
         $request->session()->put('games', $games);
-        return back();
+        return redirect()->route('cart.index');
     }
 
     public function purchase(Request $request)
     {
- 
+        
         $gamesInSession = $request->session()->get("games");
-
+        if ($gamesInSession<1){
+            return redirect()->back();
+        }
         $games = Game::findMany(array_keys($gamesInSession));
         $order = new Order();
         $order->setTotal(0);

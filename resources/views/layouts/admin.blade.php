@@ -14,17 +14,22 @@
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         </div>
       </div>
     </div>
   </nav>
-
+  <a class="nav-link active" href="{{ route('admin.index') }}">Admin Home</a>
+  <a class="nav-link active" href="{{ route('game.adminindex') }}">Games</a>
+  <a class="nav-link active" href="{{ route('article.adminindex') }}">Articles</a>
+  <a class="nav-link active" href="{{ route('home.index') }}">Back to User Page</a>
   <header class="masthead bg-primary text-white text-center py-4">
     <div class="container d-flex align-items-center flex-column">
       <h2>@yield('subtitle', 'Admin Panel')</h2>
     </div>
   </header>
+  
   <!-- header -->
 
   <div class="container my-4">

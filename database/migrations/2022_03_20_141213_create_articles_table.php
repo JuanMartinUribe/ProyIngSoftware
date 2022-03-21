@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->unsignedBigInteger('game_id');
-            $table->foreign('game_id')->references('id')->on('games');
+            $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('name');
-            $table->string('description');
+            $table->string('description',1500);
         });
     }
 

@@ -19,6 +19,7 @@
             @foreach($order->getItems() as $item)   
                 {{$item->getGame()->getName()}} Price:
                 {{$item->getGame()->getPrice()}}<br>
+                Quantity : {{$item->getQuantity()}} <br>
             @endforeach
             <br>
         @endforeach

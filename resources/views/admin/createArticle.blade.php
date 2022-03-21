@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 
-<form action="{{ route('article.save')}}" method="post">
+<form action="{{ route('article.adminsave')}}" method="post">
                @csrf
               <input type="text" class="form-control mb-2" placeholder= "name" name="name" value="{{ old('name') }}" />
               <input type="text" class="form-control mb-2" placeholder= "description" name="description" value="{{ old('description') }}" />

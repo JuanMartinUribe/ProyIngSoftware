@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('developer');
-            $table->string('description');
+            $table->string('description',1500);
             $table->string('genre');
             $table->integer('price');
         });
