@@ -22,7 +22,9 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home.index")
 Route::get('/about','App\Http\Controllers\HomeController@about')->name("home.about"); 
 Route::get('/games','App\Http\Controllers\GameController@index')->name("game.index");
 Route::get('/games/showtopsellers','App\Http\Controllers\GameController@showTopSellers')->name("game.showtopsellers");
+Route::get('/games/showmostpopular','App\Http\Controllers\GameController@showMostPopular')->name("game.showmostpopular");
 Route::get('/games/showcheapgames','App\Http\Controllers\GameController@showCheapGames')->name("game.showcheapgames");
+Route::get('/games/showrecentgames','App\Http\Controllers\GameController@showRecentGames')->name("game.showrecentgames");
 Route::get('/games/{id}','App\Http\Controllers\GameController@show')->name("game.show");
 Route::get('/article/create/{relatedGameId}/{relatedUserId}','App\Http\Controllers\ArticleController@create')->name("article.create");
 Route::get('/articles/{id}','App\Http\Controllers\ArticleController@show')->name("article.show");  

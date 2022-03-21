@@ -12,11 +12,9 @@ use App\Models\Article;
 
 class ArticleController extends Controller
 {
-    public function index(){
-        $viewData = [];
-        //$viewData["articles"] = Article::all();
-        //$viewData["articles"] = Product::with('comments')->get(); para relaciones entre clases
-        
+    public function index()
+    {
+        $viewData = [];        
         $viewData["articles"] = Article::orderBy('id', 'DESC')->get();
 
         return view('article.index') -> with("viewData",$viewData);

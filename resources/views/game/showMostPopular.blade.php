@@ -36,7 +36,7 @@
         @endforeach
       </div>
     </div>
-    <a href="{{ route('game.index') }}">Back</a>
+    <a href="{{ route('game.index') }}">Games</a>
   </div>
 </div>
 @endsection

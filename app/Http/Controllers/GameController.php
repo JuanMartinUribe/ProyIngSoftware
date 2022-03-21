@@ -35,7 +35,7 @@ class GameController extends Controller
         $viewData["games"] = $games;    
         $viewData["title"] = "Most Selled Games";
         $viewData["subtitle"] = "Top 3 BestSellers";
-        return view('game.showTopSellers') -> with("viewData",$viewData);
+        return view('game.showFilteredGames') -> with("viewData",$viewData);
     }
     public function showCheapGames()
     {
@@ -44,13 +44,43 @@ class GameController extends Controller
         $viewData["games"] = $games;    
         $viewData["title"] = "Cheap Games";
         $viewData["subtitle"] = "5 low price games";
-        return view('game.showCheapGames') -> with("viewData",$viewData);
+        return view('game.showFilteredGames') -> with("viewData",$viewData);
     }
     public function create()
     {
         return view('game.create');  
     }
 
+    public function showMostPopular()
+    {
+        $games = Game::all();
+        $mostPopular = $games[0];
+        $quantity = $mostPopular->articles()->count();
+        foreach ($games as $key => $game){
+            $actualQuantity = $game->articles()->count();
+            if ($actualQuantity>$quantity){
+                $mostPopular = $game;
+                $quantity = $actualQuantity;
+            }
+        }
+        $viewData = [];
+        $viewData["game"] = $mostPopular;
+        $viewData["title"] = "TOP 1";
+        $viewData["subtitle"] = "Trending Game";
+        $viewData["articles"] = $mostPopular->getArticles();
+        return view('game.showmostpopular')->with("viewData",$viewData);
+    }
+
+    public function showRecentGames()
+    {
+        $games = Game::orderBy('created_at','DESC')->take(3)->get();
+        $viewData = [];
+        $viewData["games"] = $games;    
+        $viewData["title"] = "Most Selled Games";
+        $viewData["subtitle"] = "New Releases";
+
+        return view('game.showFilteredGames') -> with("viewData",$viewData);
+    }
     public function save(Request $request)
     {
         /*$request->validate([

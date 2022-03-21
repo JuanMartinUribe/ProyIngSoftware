@@ -1,5 +1,10 @@
 <?php
 
+/*
+Juan Martin
+Jmuribef@eafit.edu.co 
+*/
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,9 +15,16 @@ class Game extends Model
     use HasFactory;
         /**
      * GAME ATTRIBUTES
-     * $this->attributes['id'] - int - contains the game primary key (id)
+     * $this->attributes['id'] - int - contains the article primary key (id)
      * $this->attributes['name'] - string - contains the game name
-     * $this->attributes['description'] - int - contains the game descriptiom
+     * $this->attributes['description'] - string - contains the game description
+     * $this->attributes['created_at'] - date - contains the date of creation
+     * $this->attributes['developer'] - string - contains the game developer
+     * $this->attributes['genre'] - string - contains the game genre
+     * $this->attributes['soldamount'] - int - contains the game sold amount
+     * $this->attributes['price'] - string - contains the game price
+     * $this->articles[] - Article - child articles of game
+     * $this->items[] - Article - items where the game exists
     */ 
 
     protected $fillable = ['name','description','price','genre','developer','soldamount'];
@@ -46,14 +58,17 @@ class Game extends Model
     {
         $this->attributes['description'] = $description;
     }
+
     public function getDeveloper()
     {
         return $this->attributes['developer'];
     }
+
     public function setDeveloper($developer)
     {
         $this->attributes['developer'] = $developer;
     }
+
     public function getPrice()
     {
         return $this->attributes['price'];
@@ -63,6 +78,7 @@ class Game extends Model
     {
         $this->attributes['price'] = $price;
     }
+
     public function getSoldAmount()
     {
         return $this->attributes['soldamount'];
@@ -72,13 +88,24 @@ class Game extends Model
     {
         $this->attributes['soldamount'] = $soldAmount;
     }
+
     public function getGenre()
     {
         return $this->attributes['genre'];
     }
+
     public function setGenre($genre)
     {
-        return $this->attributes['genre'];
+        $this->attributes['genre'] = $genre;
+    }
+    public function getCreatedAt()
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function setCreatedAt($createdAt)
+    {
+        $this->attributes['created_at'] = $createdAt;
     }
 
     public function articles()
@@ -94,6 +121,21 @@ class Game extends Model
     public function setArticles($articles)
     {
         $this->articles = $articles;
+    } 
+
+    public function items()
+    {
+        return $this->hasMany(Item::class);
+    }
+
+    public function getItems()
+    {
+        return $this->items;
+    }
+
+    public function setItems($items)
+    {
+        $this->items = $items;
     }   
 
     public static function validate($request)

@@ -13,6 +13,14 @@ use App\Models\Item;
 
 class Order extends Model
 {
+    /**
+     * ORDER ATTRIBUTES
+     * $this->attributes['id'] - int - contains the article primary key (id)
+     * $this->attributes['total'] - int - contains the total of the order
+     * $this->attributes['user_id'] - int - contains the id of the owner user
+     * $this->items[] - Item - child items of the order
+     * $this->user - User - Owner of the orderr
+    */ 
     public function getId()
     {
         return $this->attributes['id'];
@@ -33,6 +41,13 @@ class Order extends Model
         $this->attributes['total'] = $t;
     }
 
+    public function setUserId($userId){
+        $this->attributes["user_id"] = $userId;
+    }
+
+    public function getUserId(){
+        return $this->attributes["user_id"];
+    }
     public function items()
     {
         return $this->hasMany(Item::class);
@@ -49,11 +64,6 @@ class Order extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
-    public function setUserId($userId){
-        $this->attributes["user_id"] = $userId;
-    }
-    public function getUserId(){
-        return $this->attributes["user_id"];
-    }
+
 
 }

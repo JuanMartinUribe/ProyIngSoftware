@@ -17,7 +17,13 @@ class Article extends Model
      * ARTICLE ATTRIBUTES
      * $this->attributes['id'] - int - contains the article primary key (id)
      * $this->attributes['name'] - string - contains the article name
-     * $this->attributes['description'] - int - contains the article descriptiom
+     * $this->attributes['description'] - string - contains the article description
+     * $this->attributes['created_at'] - date - contains the date of creation
+     * $this->attributes['game_id'] - int - contains the id of the related parent game
+     * $this->attributes['user_id'] - int - contains the id of the related parent user
+     * $this->game - Game - parent game of article
+     * $this->user - User - parent user of article
+     * $this->comments[] - Comment - child comments of article
     */ 
 
     protected $fillable = ['name','description','game_id','user_id'];
@@ -52,10 +58,6 @@ class Article extends Model
         $this->attributes['description'] = $description;
     }
 
-    public function getGameId(){
-        return $this->attributes['game_id'];
-    }   
-    
     public function getCreatedAt(){
         return $this->attributes['created_at'];
     }
@@ -63,6 +65,11 @@ class Article extends Model
     public function setCreatedAt($created_at){
         $this->attributes['created_at'] = $created_at;
     }
+
+    public function getGameId(){
+        return $this->attributes['game_id'];
+    }   
+
     public function setGameId($gameId){
         $this->attributes['game_id'] = $gameId;
     }
