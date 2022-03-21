@@ -10,7 +10,7 @@
       <div class="card-body text-center">
         <a href="{{ route('game.show', ['id'=> $game->getId()]) }}"
           class="btn bg-primary text-white">{{ $game->getName() }}</a> <br>
-          Amount sold: {{ $game->getSoldAmount() }} 
+          Price: {{ $game->getPrice() }} 
       </div>
     </div>
   </div>

@@ -15,7 +15,7 @@ class Game extends Model
      * $this->attributes['description'] - int - contains the game descriptiom
     */ 
 
-    protected $fillable = ['name','description','price','genre','developer'];
+    protected $fillable = ['name','description','price','genre','developer','soldamount'];
 
     public function getId()
     {
@@ -58,9 +58,19 @@ class Game extends Model
     {
         return $this->attributes['price'];
     }
+    
     public function setPrice($price)
     {
         $this->attributes['price'] = $price;
+    }
+    public function getSoldAmount()
+    {
+        return $this->attributes['soldamount'];
+    }
+    
+    public function setSoldAmount($soldAmount)
+    {
+        $this->attributes['soldamount'] = $soldAmount;
     }
     public function getGenre()
     {

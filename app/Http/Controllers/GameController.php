@@ -21,6 +21,7 @@ class GameController extends Controller
     {   
         $game = Game::findOrFail($id);
         $viewData = [];
+        $viewData["articles"] = $game->getArticles();
         $viewData["title"] = $game->getName()." - Online Store";
         $viewData["subtitle"] =  $game->getName()." - Game information";
         $viewData["game"] = $game;
@@ -30,13 +31,21 @@ class GameController extends Controller
     public function showTopSellers()
     {
         $viewData = [];
-        $games = Game::orderBy('price','DESC')->take(3)->get();
+        $games = Game::orderBy('soldamount','DESC')->take(3)->get();
         $viewData["games"] = $games;    
         $viewData["title"] = "Most Selled Games";
-        $viewData["subtitle"] = "Top 3";
+        $viewData["subtitle"] = "Top 3 BestSellers";
         return view('game.showTopSellers') -> with("viewData",$viewData);
     }
-
+    public function showCheapGames()
+    {
+        $viewData = [];
+        $games = Game::orderBy('price')->take(5)->get();
+        $viewData["games"] = $games;    
+        $viewData["title"] = "Cheap Games";
+        $viewData["subtitle"] = "5 low price games";
+        return view('game.showCheapGames') -> with("viewData",$viewData);
+    }
     public function create()
     {
         return view('game.create');  

@@ -59,6 +59,10 @@ class CartController extends Controller
             $item->setOrderId($order->getId());
             $item->save();
             $total = $total + $game->getPrice();
+
+            //increment the times a game has been sold
+            $game->setSoldAmount($game->getSoldAmount()+1);
+            $game->save();
         }
 
         $order->setTotal($total);
