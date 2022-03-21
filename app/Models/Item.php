@@ -60,5 +60,11 @@ class Item extends Model
     public function order(){
         return $this->belongsTo(Order::class);
     }
+    public function game(){
+        return $this->belongsTo(Game::class);
+    }
+    public function getGame(){
+        return $this->game;
+    }
 
 }

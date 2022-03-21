@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Game;
 use App\Models\Order;
 use App\Models\Item;
+use Auth;
 
 class CartController extends Controller
 {
@@ -12,14 +13,9 @@ class CartController extends Controller
     {
         $games = Game::all();
         $gamesInCart = [];
-        $ids = $request->session()->get("games"); //we get the ids of the games stored in session
-        if($ids){
-            $gamesInCart = Game::findMany(array_keys($ids));
-            /*foreach ($games as $key => $game) {
-                if(in_array($key, array_keys($ids))){
-                    $gamesInCart[$key] = $game;
-                }
-            }*/
+        $gameIds = $request->session()->get("games"); //we get the ids of the games stored in session
+        if($gameIds){
+            $gamesInCart = Game::findMany(array_keys($gameIds));
         }
 
         $viewData = [];
@@ -47,6 +43,7 @@ class CartController extends Controller
         $games = Game::findMany(array_keys($gamesInSession));
         $order = new Order();
         $order->setTotal(0);
+        $order->setUserId(Auth::id());
         $order->save();
 
         $total = 0;
@@ -67,8 +64,9 @@ class CartController extends Controller
 
         $order->setTotal($total);
         $order->save();
+        $request->session()->forget('games');
 
-        dd("Felicitaciones");
+        return redirect()->route('order.index');
     }
 
     public function removeAll(Request $request)

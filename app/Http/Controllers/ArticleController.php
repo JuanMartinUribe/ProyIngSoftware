@@ -38,7 +38,7 @@ class ArticleController extends Controller
     {
         Article::validate($request);
         Article::create($request->only(["name","description","game_id","user_id"]));
-        return redirect()->back()->with('message', 'article created succesfully!');
+        return redirect()->route('game.show',$request["game_id"]);
     }
 
     public function delete(Request $request)

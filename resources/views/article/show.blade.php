@@ -1,32 +1,33 @@
 @extends('layouts.app')
 @section('content')
-
 <div class="card mb-3">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Video-Game-Controller-Icon-IDV-green.svg/2048px-Video-Game-Controller-Icon-IDV-green.svg.png"
-        width="125" 
-        height="100">
+        <img src="https://i.pinimg.com/originals/72/3d/0a/723d0af616b1fe7d5c7e56a3532be3cd.png" class="img-fluid rounded-start"
+          width="200" 
+          height="400">
+        <h5 class="card-title">
+          <a href="{{ route('game.show', ['id'=> $viewData["article"]->getGameId()]) }}">Back</a>
+        </h5>
     </div>
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">
-           Article Name: {{ $viewData["article"]->getName() }} <br> 
-           Published Date: {{ $viewData["article"]->getCreatedAt() }} <br>
+           {{ $viewData["article"]->getName() }} <br> 
+           {{ $viewData["article"]->getCreatedAt() }} <br>
            Author : {{$viewData["article"]->getUser()["name"]}}
         </h5>
-        <p class="card-text"><b> Decription </b> <br> {{ $viewData["article"]->getDescription() }}</p>
+        <p class="card-text"><b> Description </b> <br> {{ $viewData["article"]->getDescription() }}</p>
         @foreach ($viewData["comments"] as $comment)
-          <div class="col-md-4 col-lg-3 mb-2">
+          <div class="col-md-5 col-lg-5 mb-2">
             <div class="card">
               <div class="card-body text-center">
-              <p>user: {{$comment->getUser()["name"]}} <br> comment: {{ $comment->getDescription() }} 
+              <p>{{$comment->getUser()["name"]}} <br> comment: <br>{{ $comment->getDescription() }} 
               @if($comment->getUser()["id"]==Auth::id())
               <form method="post" action="{{ route('comment.delete',['id'=> $comment->getId()]) }}" >
                   @csrf
                 <input type="submit" value="Delete Comment" />
               </form>
-              <br>              
               @endif
               </div>
             </div>

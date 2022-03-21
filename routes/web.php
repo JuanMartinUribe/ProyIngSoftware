@@ -29,6 +29,7 @@ Route::post('/comment/save','App\Http\Controllers\CommentController@save')->name
 Route::post('/comment/delete','App\Http\Controllers\CommentController@delete')->name("comment.delete");
 Route::post('/article/delete','App\Http\Controllers\ArticleController@delete')->name("article.delete");
 Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
+Route::get('/orders', 'App\Http\Controllers\OrderController@index')->name("order.index");
 Auth::routes();
 
 

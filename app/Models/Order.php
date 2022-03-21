@@ -32,5 +32,23 @@ class Order extends Model
     {
         return $this->hasMany(Item::class);
     }
+    public function getItems()
+    {
+        return $this->items;
+    }
+
+    public function setItems($items)
+    {
+        $this->items = $items;
+    }
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+    public function setUserId($userId){
+        $this->attributes["user_id"] = $userId;
+    }
+    public function getUserId(){
+        return $this->attributes["user_id"];
+    }
 
 }
