@@ -68,7 +68,7 @@ class GameController extends Controller
         $viewData["title"] = "TOP 1";
         $viewData["subtitle"] = "Trending Game";
         $viewData["articles"] = $mostPopular->getArticles();
-        return view('game.showmostpopular')->with("viewData",$viewData);
+        return view('game.showMostPopular')->with("viewData",$viewData);
     }
 
     public function showRecentGames()
@@ -89,7 +89,7 @@ class GameController extends Controller
         ]);*/
 
         game::validate($request);
-        game::create($request->only(["name","description"]));
+        game::create($request->only(["name","description","developer","price","genre"]));
         return redirect()->back()->with('message', 'game created succesfully!');
     }
 
