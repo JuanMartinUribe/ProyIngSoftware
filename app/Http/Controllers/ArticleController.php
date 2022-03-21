@@ -1,5 +1,10 @@
 <?php
 
+/*
+Juan Martin
+Jmuribef@eafit.edu.co 
+*/
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;

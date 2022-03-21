@@ -1,5 +1,10 @@
 <?php
 
+/*
+Juan Martin
+Jmuribef@eafit.edu.co 
+*/
+
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Game;
@@ -13,7 +18,8 @@ class CartController extends Controller
     {
         $games = Game::all();
         $gamesInCart = [];
-        $gameIds = $request->session()->get("games"); //we get the ids of the games stored in session
+        $gameIds = $request->session()->get("games"); 
+
         if($gameIds){
             $gamesInCart = Game::findMany(array_keys($gameIds));
         }
