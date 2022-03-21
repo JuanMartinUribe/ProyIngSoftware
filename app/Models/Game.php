@@ -145,6 +145,7 @@ class Game extends Model
             "description" => "required",
             "price" => "required",
             "genre" => "required",
+            "developer" => "required",
         ]);
 
     }

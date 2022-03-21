@@ -123,7 +123,7 @@ class Article extends Model
             "name" => "required",
             "description" => "required",
             "game_id" => "required",
-            "user_id" => "required",
+            "user_id" => "required", 
         ]);
 
     }

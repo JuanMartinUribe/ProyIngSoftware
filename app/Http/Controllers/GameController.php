@@ -96,7 +96,7 @@ class GameController extends Controller
     public function delete(Request $id){
         $game = game::find($id);
         $game->each->delete();
-        return redirect()->route('game.index');
+        return redirect()->back();
     }
 
 }
