@@ -31,12 +31,13 @@ Route::get('/articles/{id}','App\Http\Controllers\ArticleController@show')->name
 Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index");
 Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add"); 
 Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase");
+Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
+Route::get('/orders', 'App\Http\Controllers\OrderController@index')->name("order.index");
 Route::post('/article/save','App\Http\Controllers\ArticleController@save')->name("article.save");
 Route::post('/comment/save','App\Http\Controllers\CommentController@save')->name("comment.save");
 Route::post('/comment/delete','App\Http\Controllers\CommentController@delete')->name("comment.delete");
 Route::post('/article/delete','App\Http\Controllers\ArticleController@delete')->name("article.delete");
-Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
-Route::get('/orders', 'App\Http\Controllers\OrderController@index')->name("order.index");
+
 Auth::routes();
 
 

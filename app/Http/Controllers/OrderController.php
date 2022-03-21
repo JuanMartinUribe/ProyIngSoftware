@@ -20,7 +20,7 @@ class OrderController extends Controller
         $viewData["orders"] = Order::where('user_id',Auth::id())->with('items')->get();
         $viewData["title"] = "Orders";
         $viewData["subtitle"] = "Your Orders";
-        
+
         return view('order.index')->with('viewData',$viewData);
     }
 
@@ -28,7 +28,7 @@ class OrderController extends Controller
     {
         Order::validate($request);
         Order::create($request->only(["description","article_id","user_id"]));
-        return redirect()->back()->with('message', 'comment added succesfully!');
+        return redirect()->back();
     }
 
 }

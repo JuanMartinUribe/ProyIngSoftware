@@ -24,7 +24,7 @@ class Game extends Model
      * $this->attributes['soldamount'] - int - contains the game sold amount
      * $this->attributes['price'] - string - contains the game price
      * $this->articles[] - Article - child articles of game
-     * $this->items[] - Article - items where the game exists
+     * $this->items[] - Item - items where the game exists
     */ 
 
     protected $fillable = ['name','description','price','genre','developer','soldamount'];
