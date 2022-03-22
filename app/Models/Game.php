@@ -143,7 +143,7 @@ class Game extends Model
         $request->validate([
             "name" => "required",
             "description" => "required",
-            "price" => "required",
+            "price" => "required|numeric|gte:0",
             "genre" => "required",
             "developer" => "required",
         ]);

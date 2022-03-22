@@ -40,10 +40,10 @@ Route::post('/article/delete','App\Http\Controllers\ArticleController@delete')->
 Route::get('/admin', 'App\Http\Controllers\AdminController@index')->name("admin.index");
 Route::get('/admin/creategame', 'App\Http\Controllers\AdminController@createGame')->name("game.admincreate");
 Route::get('/admin/createarticle', 'App\Http\Controllers\AdminController@createArticle')->name("article.admincreate");
+Route::get('/admin/gameindex','App\Http\Controllers\AdminController@gameIndex')->name("game.adminindex");
 Route::get('/admin/articleindex', 'App\Http\Controllers\AdminController@articleIndex')->name("article.adminindex");
 Route::post('/admin/savegame', 'App\Http\Controllers\AdminController@saveGame')->name("game.save");
 Route::post('/admin/savearticle', 'App\Http\Controllers\AdminController@saveArticle')->name("article.adminsave");
-Route::get('/admin/gameindex','App\Http\Controllers\AdminController@gameIndex')->name("game.adminindex");
 Route::post('/article/delete','App\Http\Controllers\ArticleController@delete')->name("article.delete");
 Route::post('/games/delete','App\Http\Controllers\GameController@delete')->name("game.delete");
 Auth::routes();
