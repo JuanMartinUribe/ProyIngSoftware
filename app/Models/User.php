@@ -116,5 +116,19 @@ class User extends Authenticatable
     public function setComments($comments)
     {
         $this->comments = $comments;
-    }      
+    }
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function getOrders()
+    {
+        return $this->orders;
+    }
+
+    public function setOrders($orders)
+    {
+        $this->orders = $orders;
+    }            
 }

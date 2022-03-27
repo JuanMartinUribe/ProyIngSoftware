@@ -18,7 +18,7 @@ class AdminController extends Controller
     {   
         $user = Auth::user();
 
-        if ($user["isAdmin"]){
+        if ($user->getIsAdmin()){
             return view('admin.index');
         }
         else{
