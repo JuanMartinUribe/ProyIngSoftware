@@ -21,10 +21,10 @@
           <a class="nav-link active" href="{{ route('game.index') }}">Games</a>
           <a class="nav-link active" href="{{ route('cart.index') }}">Cart</a>
           <a class="nav-link active" href="{{ route('order.index') }}">Orders</a>     
-          <a class="nav-link active" href="{{ route('game.showcheapgames') }}">Low Price Games</a>
-          <a class="nav-link active" href="{{ route('game.showtopsellers') }}">Best Sellers</a>
-          <a class="nav-link active" href="{{ route('game.showrecentgames') }}">New Releases</a>
-          <a class="nav-link active" href="{{ route('game.showmostpopular') }}">Trending Game</a>
+          <a class="nav-link active" href="{{ route('game.showCheapGames') }}">Low Price Games</a>
+          <a class="nav-link active" href="{{ route('game.showTopSellers') }}">Best Sellers</a>
+          <a class="nav-link active" href="{{ route('game.showRecentGames') }}">New Releases</a>
+          <a class="nav-link active" href="{{ route('game.showMostPopular') }}">Trending Game</a>
           <div class="vr bg-white mx-2 d-none d-lg-block"></div>
           <a class="nav-link active" href="{{ route('home.index') }}">Home</a>
           <a class="nav-link active" href="{{ route('home.about') }}">About</a>

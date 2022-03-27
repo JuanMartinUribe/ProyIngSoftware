@@ -27,7 +27,7 @@
 
         @foreach($viewData["articles"] as $article)
         <a class href="{{ route('article.show', ["id" => $article->getId()]) }}">- {{ $article->getName() }}<br></a>
-          @if($article->getUser()["id"]==Auth::id())
+          @if($article->getUser()->getId()==Auth::id())
               <form method="post" action="{{ route('article.delete',['id'=> $article->getId()]) }}" >
                   @csrf
                 <input type="submit" value="Delete Article" />

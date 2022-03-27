@@ -15,15 +15,15 @@
         <h5 class="card-title">
            {{ $viewData["article"]->getName() }} <br> 
            {{ $viewData["article"]->getCreatedAt() }} <br>
-           Author : {{$viewData["article"]->getUser()["name"]}}
+           Author : {{$viewData["article"]->getUser()->getName()}}
         </h5>
         <p class="card-text"><b> Description </b> <br> {{ $viewData["article"]->getDescription() }}</p>
         @foreach ($viewData["comments"] as $comment)
           <div class="col-md-5 col-lg-5 mb-2">
             <div class="card">
               <div class="card-body text-center">
-              <p>{{$comment->getUser()["name"]}} <br> comment: <br>{{ $comment->getDescription() }} 
-              @if($comment->getUser()["id"]==Auth::id())
+              <p>{{$comment->getUser()->getName()}} <br> comment: <br>{{ $comment->getDescription() }} 
+              @if($comment->getUser()->getId()==Auth::id())
               <form method="post" action="{{ route('comment.delete',['id'=> $comment->getId()]) }}" >
                   @csrf
                 <input type="submit" value="Delete Comment" />

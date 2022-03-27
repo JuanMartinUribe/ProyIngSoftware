@@ -21,8 +21,8 @@
     </div>
   </nav>
   <a class="nav-link active" href="{{ route('admin.index') }}">Admin Home</a>
-  <a class="nav-link active" href="{{ route('game.adminindex') }}">Games</a>
-  <a class="nav-link active" href="{{ route('article.adminindex') }}">Articles</a>
+  <a class="nav-link active" href="{{ route('game.adminIndex') }}">Games</a>
+  <a class="nav-link active" href="{{ route('article.adminIndex') }}">Articles</a>
   <a class="nav-link active" href="{{ route('home.index') }}">Back to User Page</a>
   <header class="masthead bg-primary text-white text-center py-4">
     <div class="container d-flex align-items-center flex-column">
