@@ -7,31 +7,29 @@
   <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
 </head>
 <body>
-  <!-- header -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-4">
-    <div class="container">
+      <div class="container">
+        <a class="navbar-brand" href="{{ route('home.index') }}"><img src="https://i.ibb.co/rsNfwLL/Logo.png" width="200" height="100"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
-        
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link active" href="{{ route('admin.index') }}">@lang('Admin home')</a>
+            <a class="nav-link active" href="{{ route('game.adminIndex') }}">@lang('Games')</a>
+            <a class="nav-link active" href="{{ route('article.adminIndex') }}">@lang('Articles')</a>
+            <div class="vr bg-white mx-2 d-none d-lg-block"></div>
+            <a class="nav-link active" href="{{ route('home.index') }}">@lang('Back to user page')</a>
+          </div>
         </div>
       </div>
-    </div>
   </nav>
-  <a class="nav-link active" href="{{ route('admin.index') }}">Admin Home</a>
-  <a class="nav-link active" href="{{ route('game.adminIndex') }}">Games</a>
-  <a class="nav-link active" href="{{ route('article.adminIndex') }}">Articles</a>
-  <a class="nav-link active" href="{{ route('home.index') }}">Back to User Page</a>
   <header class="masthead bg-primary text-white text-center py-4">
     <div class="container d-flex align-items-center flex-column">
-      <h2>@yield('subtitle', 'Admin Panel')</h2>
+      <h2>@yield('subtitle', 'Admin panel')</h2>
     </div>
   </header>
-  
-  <!-- header -->
-
   <div class="container my-4">
     @yield('content')
   </div>
