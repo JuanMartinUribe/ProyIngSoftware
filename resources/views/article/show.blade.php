@@ -36,9 +36,7 @@
               <input type="submit" class="btn btn-primary" value="@lang('Add comment')" />
         </form>
         <br>
-        <h5 class="card-title">
-          <a href="{{ route('game.show', ['id'=> $viewData["article"]->getGameId()]) }}">Back</a>
-        </h5>
+        <a class="btn bg-primary text-white" href="{{ route('game.show', ['id'=> $viewData["article"]->getGameId()]) }}">Back</a>
       </div>
     </div>
   </div>
