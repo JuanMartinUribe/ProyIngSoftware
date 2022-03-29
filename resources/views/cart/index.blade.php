@@ -2,6 +2,7 @@
 @section("title", $viewData["title"])
 @section("subtitle", $viewData["subtitle"])
 @section('content')
+
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-12">
@@ -32,6 +33,12 @@
   </div>
   <div class="row justify-content-center">
     <div class="col-md-12">
+      <center>
+            <h1>
+              @lang('Your balance'): {{Auth::user()->getBalance()}}
+            </h1>
+      </center>
+      <br>
       <h1>@lang('Games in cart')</h1>
       <ul>
         @foreach($viewData["gamesInCart"] as $key => $game)
@@ -53,8 +60,6 @@
       </ul>
       <ul>
         <a class="btn bg-primary text-white" href="{{ route('cart.purchase') }}">@lang('Buy')</a><br>
-        <br>
-        Your Balance: {{Auth::user()->getBalance()}}
         <br>
         <a class="btn bg-primary text-white" href="{{ route('cart.removeAll') }}">@lang('Remove all products from cart')</a>
       </ul>

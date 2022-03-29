@@ -3,6 +3,8 @@
 /*
 Juan Martin
 Jmuribef@eafit.edu.co 
+Daniel Giraldo
+Djgiraldot@eafit.edu.co
 */
 
 namespace App\Http\Controllers;
@@ -16,14 +18,16 @@ class AdminController extends Controller
     public function index()
     {   
         $user = Auth::user();
-
-        if ($user->getIsAdmin()){
+        if ($user->getIsAdmin())
+        {
             return view('admin.index');
         }
-        else{
+        else
+        {
             abort(404);
         }
     }
+
     public function articleIndex()
     {   
         $viewData = [];
@@ -31,6 +35,7 @@ class AdminController extends Controller
         $viewData["articles"] = $articles;
         return view('admin.articleIndex')->with("viewData",$viewData);
     }
+    
     public function gameIndex()
     {   
         $viewData = [];

@@ -26,5 +26,4 @@ class CommentController extends Controller
         Comment::create($request->only(["description","article_id","user_id"]));
         return redirect()->back()->with('message', 'comment added succesfully!');
     }
-
 }

@@ -46,6 +46,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
     public function getId()
     {
         return $this->attributes['id'];
@@ -55,6 +56,7 @@ class User extends Authenticatable
     {
         $this->attributes['id'] = $id;
     }
+
     public function getName()
     {
         return $this->attributes['name'];
@@ -64,6 +66,7 @@ class User extends Authenticatable
     {
         $this->attributes['name'] = $name;
     }
+
     public function getEmail()
     {
         return $this->attributes['email'];
@@ -73,6 +76,7 @@ class User extends Authenticatable
     {
         $this->attributes['email'] = $email;
     }
+
     public function getIsAdmin()
     {
         return $this->attributes['isAdmin'];
@@ -100,6 +104,7 @@ class User extends Authenticatable
     public function setCreatedAt($created_at){
         $this->attributes['created_at'] = $created_at;
     }
+
     public function articles()
     {
         return $this->hasMany(Article::class);
@@ -114,6 +119,7 @@ class User extends Authenticatable
     {
         $this->articles = $articles;
     }
+
     public function comments()
     {
         return $this->hasMany(Comment::class);
@@ -128,6 +134,7 @@ class User extends Authenticatable
     {
         $this->comments = $comments;
     }
+
     public function orders()
     {
         return $this->hasMany(Order::class);
@@ -142,6 +149,4 @@ class User extends Authenticatable
     {
         $this->orders = $orders;
     }
-
-
 }

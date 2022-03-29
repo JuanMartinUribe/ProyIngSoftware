@@ -157,8 +157,5 @@ class Game extends Model
             "developer" => "required",
             "image" => "required",
         ]);
-
     }
-
-    
 }

@@ -4,7 +4,6 @@
 @section('content')
 
 <div class="container">
-  
   <div class="row">
     <div class="col-lg-4 ms-auto">
       @lang('About information')
