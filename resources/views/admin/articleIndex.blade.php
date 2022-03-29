@@ -13,7 +13,8 @@
             <form method="post" action="{{ route('article.delete',['id'=> $article->getId()])}}" >
               @csrf
               <input type="submit" value="Delete Article" />
-            </form>           
+            </form>
+            <a href="{{ route('article.edit',['id'=> $article->getId()]) }} ">Update</a>  
       </div>    
     </div>
   </div>
