@@ -21,24 +21,24 @@
         <b>@lang('Genre')</b> : <p class="card-text">{{ $viewData["game"]->getGenre() }}</p>
         <b>@lang('Related articles'):</b> <br>
         @foreach($viewData["articles"] as $article)
-        <a class href="{{ route('article.show', ["id" => $article->getId()]) }}">- {{ $article->getName() }}<br></a> 
+        <a class="btn bg-primary text-white btn-sm" href="{{ route('article.show', ["id" => $article->getId()]) }}">- {{ $article->getName() }}</a><br>
           @if($article->getUser()["id"]==Auth::id())
               <form method="post" action="{{ route('article.delete',['id'=> $article->getId()]) }}" >
                   @csrf
-                <input type="submit" value="@lang('Delete article')" />
+                  <input type="submit" value="@lang('Delete article')" /><br> 
               </form>
           @endif
+          <br>
         @endforeach
-        <br>
         @if(Auth::id())
-          <a class="navbar-createArticle" href="{{ route('article.create',['relatedGameId'=>$viewData["game"]->getId(),'relatedUserId' => Auth::id()  ])}}">@lang('Create New Article')<br></a>
+          <a class="btn bg-primary text-white" href="{{ route('article.create',['relatedGameId'=>$viewData["game"]->getId(),'relatedUserId' => Auth::id()  ])}}">@lang('Create New Article')<br></a>
         @endif 
-        <a href="{{ route('cart.add', ['id'=> $viewData["game"]->getId() ]) }}">@lang('Add game to cart')</a>
+        <a class="btn bg-primary text-white" href="{{ route('cart.add', ['id'=> $viewData["game"]->getId() ]) }}">@lang('Add game to cart')</a>
       </div>
     </div>
   </div>
   <h5 class="card-title text-center">
-    <a href="{{ route('game.index') }}">@lang('Back')</a>
+    <a class="btn bg-primary text-white" href="{{ route('game.index') }}">@lang('Back')</a>
   </h5>
 </div>
 @endsection

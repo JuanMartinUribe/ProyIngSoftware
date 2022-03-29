@@ -25,7 +25,7 @@
         @endforeach
       </div>
     </div>
-    <a href="{{ route('cart.index') }}">Back To Cart</a>
+    <a class="btn bg-primary text-white" href="{{ route('cart.index') }}">Back To Cart</a>
   </div>
 </div>
 @endsection
