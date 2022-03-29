@@ -9,7 +9,7 @@
 </head>
 <body>
   <!-- header -->
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #561370;">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2f3796;">
     <div class="container">
       <a class="navbar-brand" href="{{ route('home.index') }}"><img src="https://i.ibb.co/rsNfwLL/Logo.png" width="200" height="100"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"

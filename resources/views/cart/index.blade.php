@@ -35,7 +35,9 @@
     <div class="col-md-12">
       <center>
             <h1>
+            @if(Auth::user())
               @lang('Your balance'): {{Auth::user()->getBalance()}}
+            @endif  
             </h1>
       </center>
       <br>
@@ -59,7 +61,9 @@
         @endforeach
       </ul>
       <ul>
-        <a class="btn bg-primary text-white" href="{{ route('cart.purchase') }}">@lang('Buy')</a><br>
+        @if(Auth::user())
+          <a class="btn bg-primary text-white" href="{{ route('cart.purchase') }}">@lang('Buy')</a><br>
+        @endif
         <br>
         <a class="btn bg-primary text-white" href="{{ route('cart.removeAll') }}">@lang('Remove all products from cart')</a>
       </ul>

@@ -46,10 +46,6 @@ class GameController extends Controller
         return view('game.showFilteredGames') -> with("viewData",$viewData);
     }
 
-    public function adminCreate()
-    {   
-        return view('admin.createGame');
-    }
 
     public function showMostPopular()
     {
@@ -88,6 +84,9 @@ class GameController extends Controller
         $game->delete();
         return redirect()->back();
     }
+
+    
+    /* Methods related with game cruds from admin page*/
 
     public function adminSave(Request $request)
     {

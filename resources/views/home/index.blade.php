@@ -4,7 +4,7 @@
 
 <body style="background-color:#8d95dd;">
 <div align = "center">
-  <div class="card text-white" style="width: 18rem; background-color:#561370;">
+  <div class="card text-white" style="width: 18rem; background-color:#031540;">
     <img class="card-img-top" src="https://www.hp.com/us-en/shop/app/assets/images/uploads/prod/best-free-pc-games-available-now-hero1537482575021.jpg" alt="Card image cap">
     <div class="card-tittle text-center">
       <h5>
@@ -18,7 +18,7 @@
 </div>
 <div class = "row">
   <div class="col-md-9">
-    <div class="card text-white" style="width: 18rem; background-color:#561370;">
+    <div class="card text-white" style="width: 18rem; background-color:#086955;">
       <img class="card-img-top" src="https://miro.medium.com/max/1200/1*UAGU532MbhR5cm3symwWqg.png" alt="Card image cap">
       <div class="card-tittle text-center">
         <h5>
@@ -31,7 +31,7 @@
     </div>
   </div>
   <div class="col-sm-1">
-    <div class="card text-white" style="width: 18rem; background-color:#561370;">
+    <div class="card text-white" style="width: 18rem; background-color:#13a5d6;">
       <img class="card-img-top" src="https://cpb-us-w2.wpmucdn.com/voices.uchicago.edu/dist/8/90/files/2019/11/feedback-smallcanvas-1080x675.png" alt="Card image cap">
       <div class="card-tittle text-center">
         <h5>

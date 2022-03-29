@@ -18,7 +18,8 @@ class AdminController extends Controller
     public function index()
     {   
         $user = Auth::user();
-        if ($user->getIsAdmin())
+        
+        if ($user && $user->getIsAdmin())
         {
             return view('admin.index');
         }
@@ -30,18 +31,63 @@ class AdminController extends Controller
 
     public function articleIndex()
     {   
+        $user = Auth::user();
         $viewData = [];
         $articles = Article::all();
         $viewData["articles"] = $articles;
-        return view('admin.articleIndex')->with("viewData",$viewData);
+        
+        if ($user && $user->getIsAdmin())
+        {
+            return view('admin.articleIndex')->with("viewData",$viewData);
+        }
+        else
+        {
+            abort(404);
+        }
     }
     
     public function gameIndex()
     {   
+
         $viewData = [];
         $games = Game::all();
         $viewData["games"] = $games;
-        return view('admin.gameIndex')->with("viewData",$viewData);
+        
+        $user = Auth::user();
+        if ($user && $user->getIsAdmin())
+        {
+            return view('admin.gameIndex')->with("viewData",$viewData);
+        }
+        else
+        {
+            abort(404);
+        }
+    }
+    public function createArticle()
+    {   
+        $user = Auth::user();
+        if ($user && $user->getIsAdmin())
+        {
+            return view('admin.createArticle');
+        }
+        else
+        {
+            abort(404);
+        }
+        
+    }
+    public function createGame()
+    {   
+        $user = Auth::user();
+        if ($user && $user->getIsAdmin())
+        {
+            return view('admin.createGame');
+        }
+        else
+        {
+            abort(404);
+        }
+        
     }
 
     /*

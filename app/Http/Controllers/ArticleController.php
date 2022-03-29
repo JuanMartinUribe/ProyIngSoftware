@@ -35,22 +35,11 @@ class ArticleController extends Controller
         return view('article.create') -> with("viewData",$viewData);  
     }
 
-    public function adminCreate()
-    {   
-        return view('admin.createArticle');
-    }
-
     public function save(Request $request)
     {
         Article::validate($request);
         Article::create($request->only(["name","description","game_id","user_id"]));
         return redirect()->route('game.show',$request["game_id"]);
-    }
-
-    public function adminSave(Request $request){
-        Article::validate($request);
-        Article::create($request->only(['name','description','user_id','game_id']));
-        return redirect()->route('admin.index');
     }
 
     public function delete(Request $request)
@@ -60,6 +49,14 @@ class ArticleController extends Controller
         $article->comments()->delete();
         Article::where('id', $id)->delete();
         return redirect()->back();
+    }
+
+    /* Methods related with game cruds from admin page*/
+
+    public function adminSave(Request $request){
+        Article::validate($request);
+        Article::create($request->only(['name','description','user_id','game_id']));
+        return redirect()->route('admin.index');
     }
 
     public function edit(Request $request){
