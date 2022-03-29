@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\Game;
 class GameController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $viewData = [];
         //$viewData["games"] = Game::all();
         //$viewData["games"] = Product::with('comments')->get(); para relaciones entre clases
         $viewData["title"] = "Products - Online Store";
         $viewData["subtitle"] =  "List of Games";
         $viewData["games"] = Game::orderBy('id', 'DESC')->get();
-
         return view('game.index') -> with("viewData",$viewData);
     }
 
@@ -25,7 +25,6 @@ class GameController extends Controller
         $viewData["title"] = $game->getName()." - Online Store";
         $viewData["subtitle"] =  $game->getName()." - Game information";
         $viewData["game"] = $game;
-
         return view('game.show') -> with("viewData",$viewData);
     }
     public function showTopSellers()
@@ -49,17 +48,19 @@ class GameController extends Controller
 
     public function adminCreate()
     {   
-
         return view('admin.createGame');
     }
+
     public function showMostPopular()
     {
         $games = Game::all();
         $mostPopular = $games[0];
         $quantity = $mostPopular->articles()->count();
-        foreach ($games as $key => $game){
+        foreach ($games as $key => $game)
+        {
             $actualQuantity = $game->articles()->count();
-            if ($actualQuantity>$quantity){
+            if ($actualQuantity>$quantity)
+            {
                 $mostPopular = $game;
                 $quantity = $actualQuantity;
             }
@@ -79,7 +80,6 @@ class GameController extends Controller
         $viewData["games"] = $games;    
         $viewData["title"] = "Most Selled Games";
         $viewData["subtitle"] = "New Releases";
-
         return view('game.showFilteredGames') -> with("viewData",$viewData);
     }
 
@@ -91,14 +91,8 @@ class GameController extends Controller
 
     public function adminSave(Request $request)
     {
-        /*$request->validate([
-            "name" => "required",
-            "description" => "required"
-        ]);*/
-
         Game::validate($request);
         Game::create($request->only(['name','description','price','genre','developer','image']));
-        
         $game = Game::latest()->first();
         Game::saveImage($request,$game);
         return redirect()->route('admin.index');
@@ -120,5 +114,4 @@ class GameController extends Controller
         return view('admin.index');
 
     }
-
 }

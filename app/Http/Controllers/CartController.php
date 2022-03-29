@@ -19,17 +19,15 @@ class CartController extends Controller
         $games = Game::all();
         $gamesInCart = [];
         $gameIds = $request->session()->get("games"); 
-
-        if($gameIds){
+        if($gameIds)
+        {
             $gamesInCart = Game::findMany(array_keys($gameIds));
         }
-
         $viewData = [];
         $viewData["title"] = "Cart - Online Store";
         $viewData["subtitle"] =  "Shopping Cart";
         $viewData["games"] = $games;
         $viewData["gamesInCart"] =$gamesInCart;
-
         return view('cart.index')->with("viewData",$viewData);
     }
 
@@ -43,9 +41,9 @@ class CartController extends Controller
 
     public function purchase(Request $request)
     {
-        
         $gamesInSession = $request->session()->get("games");
-        if ($gamesInSession<1){
+        if ($gamesInSession<1)
+        {
             return redirect()->back();
         }
         $games = Game::findMany(array_keys($gamesInSession));
@@ -53,10 +51,9 @@ class CartController extends Controller
         $order->setTotal(0);
         $order->setUserId(Auth::id());
         $order->save();
-
         $total = 0;
-
-        foreach ($games as $key => $game) {
+        foreach ($games as $key => $game) 
+        {
             $item = new Item();
             $item->setQuantity(1);
             $item->setGameId($game->getId());
@@ -64,24 +61,23 @@ class CartController extends Controller
             $item->setOrderId($order->getId());
             $item->save();
             $total = $total + $game->getPrice();
-
             //increment the times a game has been sold
             $game->setSoldAmount($game->getSoldAmount()+1);
             $game->save();
         }
-
         $user = Auth::user();
-        if($total>$user->getBalance()){
+        if($total>$user->getBalance())
+        {
             return redirect()->back();
         }
-        else{
+        else
+        {
             $user->setBalance($user->getBalance()-$total);
         }
         $user->save();
         $order->setTotal($total);
         $order->save();
         $request->session()->forget('games');
-
         return redirect()->route('order.index');
     }
 

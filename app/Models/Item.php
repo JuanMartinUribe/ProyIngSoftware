@@ -86,5 +86,4 @@ class Item extends Model
     public function getGame(){
         return $this->game;
     }
-
 }

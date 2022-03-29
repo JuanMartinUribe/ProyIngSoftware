@@ -157,7 +157,6 @@ class Game extends Model
             "developer" => "required",
             "image" => "required",
         ]);
-
     }
     public static function saveImage(Request $request,$game){
         if($request->hasfile('image'))

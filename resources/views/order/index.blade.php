@@ -2,6 +2,7 @@
 @section('title', $viewData["title"])
 @section('subtitle', $viewData["subtitle"])
 @section('content')
+
 <div class="card mb-3">
   <div class="row g-0">
     <div class="col-md-4">
@@ -14,18 +15,25 @@
         <h5 class="card-title">
         </h5>
         @foreach($viewData["orders"] as $order)
-            Order ID: {{$order->getId()}}<br>
-            Total Price: {{$order->getTotal()}}<br>
-            @foreach($order->getItems() as $item)   
-                {{$item->getGame()->getName()}} Price:
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Order ID: {{$order->getId()}}<br>
+              </h5>
+              <p class="card-text">  
+              @lang('Total price'): {{$order->getTotal()}}<br>
+              @foreach($order->getItems() as $item)   
+                {{$item->getGame()->getName()}} @lang('Price'):
                 {{$item->getGame()->getPrice()}}<br>
-                Quantity : {{$item->getQuantity()}} <br>
-            @endforeach
+                @lang('Quantity') : {{$item->getQuantity()}} <br>
+              @endforeach
+              </p>
+            </div>
+          </div>
             <br>
         @endforeach
       </div>
     </div>
-    <a class="btn bg-primary text-white" href="{{ route('cart.index') }}">Back To Cart</a>
+    <a class="btn bg-primary text-white" href="{{ route('cart.index') }}">@lang('Back to cart')</a>
   </div>
 </div>
 @endsection

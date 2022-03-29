@@ -9,11 +9,9 @@
     <input id="user_id" name="user_id" type="hidden" value={{$viewData["relatedUserId"]}} >
     <input type="submit" class="btn btn-primary" value="Send" />
 </form>
-
 @if(session()->has('message'))
     <div class="alert alert-success">
         {{ session()->get('message') }}
     </div>
 @endif
-
 @endsection 

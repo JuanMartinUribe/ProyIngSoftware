@@ -6,7 +6,6 @@ Jmuribef@eafit.edu.co
 */
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Article;
 
@@ -16,7 +15,6 @@ class ArticleController extends Controller
     {
         $viewData = [];        
         $viewData["articles"] = Article::orderBy('id', 'DESC')->get();
-
         return view('article.index') -> with("viewData",$viewData);
     }
 
@@ -39,9 +37,7 @@ class ArticleController extends Controller
 
     public function adminCreate()
     {   
-
         return view('admin.createArticle');
-
     }
 
     public function save(Request $request)

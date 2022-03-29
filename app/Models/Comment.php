@@ -98,6 +98,5 @@ class Comment extends Model
             "article_id" => "required",
             "user_id" => "required",
         ]);
-
     }
 }

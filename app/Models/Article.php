@@ -132,8 +132,5 @@ class Article extends Model
             "game_id" => "required",
             "user_id" => "required", 
         ]);
-
-    }
-
-    
+    }    
 }
