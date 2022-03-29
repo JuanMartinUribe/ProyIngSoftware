@@ -70,6 +70,14 @@ class CartController extends Controller
             $game->save();
         }
 
+        $user = Auth::user();
+        if($total>$user->getBalance()){
+            return redirect()->back();
+        }
+        else{
+            $user->setBalance($user->getBalance()-$total);
+        }
+        $user->save();
         $order->setTotal($total);
         $order->save();
         $request->session()->forget('games');

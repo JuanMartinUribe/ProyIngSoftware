@@ -82,6 +82,17 @@ class User extends Authenticatable
     {
         $this->attributes['isAdmin'] = $isAdmin;
     }
+
+    public function getBalance()
+    {
+        return $this->attributes["balance"];
+    }
+
+    public function setBalance($balance)
+    {
+        $this->attributes["balance"] = $balance;
+    }
+
     public function getCreatedAt(){
         return $this->attributes['created_at'];
     }
@@ -130,5 +141,7 @@ class User extends Authenticatable
     public function setOrders($orders)
     {
         $this->orders = $orders;
-    }            
+    }
+
+
 }

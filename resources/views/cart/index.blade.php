@@ -54,6 +54,8 @@
       <ul>
         <a class="btn bg-primary text-white" href="{{ route('cart.purchase') }}">@lang('Buy')</a><br>
         <br>
+        Your Balance: {{Auth::user()->getBalance()}}
+        <br>
         <a class="btn bg-primary text-white" href="{{ route('cart.removeAll') }}">@lang('Remove all products from cart')</a>
       </ul>
     </div>
