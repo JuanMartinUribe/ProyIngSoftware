@@ -1,15 +1,20 @@
 @extends('layouts.app')
-@section('title', $viewData["title"])
-@section('subtitle', $viewData["subtitle"])
+@section('title')
+@section('subtitle')
 @section('content')
+
 <div class="container">
   
   <div class="row">
     <div class="col-lg-4 ms-auto">
-      <p class="lead">{{ $viewData["description"] }}</p>
+      @lang('About information')
     </div>
     <div class="col-lg-4 me-auto">
-      <p class="lead">{{ $viewData["author"] }}</p>
+      <h5>
+        @lang('Made by')<br>
+      </h5>
+      @lang('Daniel')<br>
+      @lang('Juan')<br>
     </div>
   </div>
 </div>
