@@ -46,11 +46,12 @@ class GameController extends Controller
         $viewData["subtitle"] = "5 low price games";
         return view('game.showFilteredGames') -> with("viewData",$viewData);
     }
-    public function create()
-    {
-        return view('game.create');  
-    }
 
+    public function adminCreate()
+    {   
+
+        return view('admin.createGame');
+    }
     public function showMostPopular()
     {
         $games = Game::all();
@@ -81,16 +82,28 @@ class GameController extends Controller
 
         return view('game.showFilteredGames') -> with("viewData",$viewData);
     }
-    public function save(Request $request)
+    public function adminSave(Request $request)
     {
         /*$request->validate([
             "name" => "required",
             "description" => "required"
         ]);*/
 
-        game::validate($request);
-        game::create($request->only(["name","description","developer","price","genre"]));
-        return redirect()->back()->with('message', 'game created succesfully!');
+        Game::validate($request);
+        Game::create($request->only(['name','description','price','genre','developer','image']));
+        
+        $game = Game::latest()->first();
+
+        if($request->hasfile('image'))
+        {
+            $file = $request->file('image');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extenstion;
+            $file->move('uploads/games/', $filename);
+            $game->image = $filename;
+        }
+        $game->save();
+        return redirect()->route('admin.index');
     }
 
     public function delete(Request $id){
