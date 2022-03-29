@@ -82,26 +82,36 @@ class GameController extends Controller
         $viewData["subtitle"] = "New Releases";
         return view('game.showFilteredGames') -> with("viewData",$viewData);
     }
+
+    public function delete(Request $request){
+        $game = Game::find($request->id);
+        $game->delete();
+        return redirect()->back();
+    }
+
     public function adminSave(Request $request)
     {
         Game::validate($request);
         Game::create($request->only(['name','description','price','genre','developer','image']));
         $game = Game::latest()->first();
-        if($request->hasfile('image'))
-        {
-            $file = $request->file('image');
-            $extenstion = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extenstion;
-            $file->move('uploads/games/', $filename);
-            $game->image = $filename;
-        }
-        $game->save();
+        Game::saveImage($request,$game);
         return redirect()->route('admin.index');
     }
 
-    public function delete(Request $id){
-        $game = game::find($id);
-        $game->each->delete();
-        return redirect()->back();
+
+    public function edit(Request $request){
+        $game = Game::find($request->id);
+        
+        return view('admin.gameUpdate')->with("game",$game);
+    }
+
+    public function update(Request $request){
+
+        $game = Game::find($request->id);
+        Game::validate($request);
+        Game::where('id',$request->id)->update($request->only(['name','description','price','genre','developer','image']));
+        Game::saveImage($request,$game);
+        return view('admin.index');
+
     }
 }

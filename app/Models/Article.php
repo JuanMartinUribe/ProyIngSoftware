@@ -73,6 +73,13 @@ class Article extends Model
     public function setGameId($gameId){
         $this->attributes['game_id'] = $gameId;
     }
+    public function getUserId(){
+        return $this->attributes['user_id'];
+    }   
+
+    public function setUserId($userId){
+        $this->attributes['user_id'] = $userId;
+    }
 
     public function game(){
         return $this->belongsTo(Game::class);

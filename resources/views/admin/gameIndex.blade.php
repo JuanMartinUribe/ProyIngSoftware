@@ -14,7 +14,8 @@
             <form method="post" action="{{ route('game.delete',['id'=> $game->getId()])}}" >
               @csrf
               <input type="submit" value="Delete game" />
-            </form>           
+            </form>
+            <a href="{{ route('game.edit',['id'=> $game->getId()]) }} ">Update</a>                  
       </div>    
     </div>
   </div>

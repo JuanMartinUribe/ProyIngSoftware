@@ -6,7 +6,7 @@ Jmuribef@eafit.edu.co
 */
 
 namespace App\Models;
-
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Article;
@@ -158,4 +158,17 @@ class Game extends Model
             "image" => "required",
         ]);
     }
+    public static function saveImage(Request $request,$game){
+        if($request->hasfile('image'))
+        {
+            $file = $request->file('image');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extenstion;
+            $file->move('uploads/games/', $filename);
+            $game->image = $filename;
+        }
+        $game->save();
+    }
+
+    
 }

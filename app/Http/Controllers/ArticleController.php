@@ -34,7 +34,7 @@ class ArticleController extends Controller
         $viewData["relatedUserId"] = $relatedUserId;
         return view('article.create') -> with("viewData",$viewData);  
     }
-    
+
     public function adminCreate()
     {   
         return view('admin.createArticle');
@@ -60,5 +60,18 @@ class ArticleController extends Controller
         $article->comments()->delete();
         Article::where('id', $id)->delete();
         return redirect()->back();
+    }
+
+    public function edit(Request $request){
+        $article = Article::find($request->id);
+        
+        return view('admin.articleUpdate')->with("article",$article);
+    }
+    public function update(Request $request){
+
+        Article::validate($request);
+        Article::where('id',$request->id)->update($request->only(['name','description','game_id','user_id']));
+        return view('admin.index');
+
     }
 }

@@ -41,12 +41,15 @@ Route::get('/admin', 'App\Http\Controllers\AdminController@index')->name("admin.
 Route::get('/admin/creategame', 'App\Http\Controllers\GameController@adminCreate')->name("game.adminCreate");
 Route::get('/admin/createarticle', 'App\Http\Controllers\ArticleController@adminCreate')->name("article.adminCreate");
 Route::get('/admin/gameindex','App\Http\Controllers\AdminController@gameIndex')->name("game.adminIndex");
+Route::get('/admin/game/edit/{id}','App\Http\Controllers\gameController@edit')->name("game.edit");
 Route::get('/admin/articleindex', 'App\Http\Controllers\AdminController@articleIndex')->name("article.adminIndex");
 Route::post('/admin/savegame', 'App\Http\Controllers\GameController@adminSave')->name("game.adminSave");
 Route::post('/admin/savearticle', 'App\Http\Controllers\ArticleController@adminSave')->name("article.adminSave");
 Route::post('/article/delete','App\Http\Controllers\ArticleController@delete')->name("article.delete");
 Route::post('/games/delete','App\Http\Controllers\GameController@delete')->name("game.delete");
+Route::post('/games/update','App\Http\Controllers\GameController@update')->name("game.update");
+Route::post('/articles/update','App\Http\Controllers\ArticleController@update')->name("article.update");
+Route::get('/admin/article/edit/{id}','App\Http\Controllers\ArticleController@edit')->name("article.edit");
 Auth::routes();
 
 
-    
