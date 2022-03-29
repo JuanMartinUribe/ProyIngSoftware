@@ -14,6 +14,7 @@
               <h5 class="card-title">
                 @lang('Name'): {{ $game->getName() }}
               </h5>
+              <img class="image rounded" src="{{asset('/uploads/games/'.$game->getImage() )}}" alt="image" style="align:center width: 100px;height: 100px; padding: 5px; margin: 0px; ">
               <h6 class="card-subtitle mb-2 text-muted">
                 @lang('Genre'): {{ $game->getGenre() }}
               </h6>
@@ -47,6 +48,7 @@
               <h5 class="card-title">
                 @lang('Name'): {{ $game->getName() }}
               </h5>
+              <img class="image rounded" src="{{asset('/uploads/games/'.$game->getImage() )}}" alt="image" style="align:center width: 100px;height: 100px; padding: 5px; margin: 0px; ">
               <h6 class="card-subtitle mb-2 text-muted">
                 @lang('Genre'): {{ $game->getGenre() }}
               </h6>
