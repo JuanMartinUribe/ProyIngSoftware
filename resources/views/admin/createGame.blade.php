@@ -3,7 +3,7 @@
 
 <center>
     <div class="card-body text-center" style="width: 25rem;">
-        <form action="{{ route('game.save')}}" method="post">
+        <form action="{{ route('game.save')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <input type="text" class="form-control mb-2" placeholder= "name" name="name" value="{{ old('name') }}" />
                     <input type="text" class="form-control mb-2" placeholder= "description" name="description" value="{{ old('description') }}" />
@@ -11,6 +11,7 @@
                     <input type="text" class="form-control mb-2" placeholder= "genre" name="genre" value="{{ old('genre') }}" />
                     <input type="text" class="form-control mb-2" placeholder= "price" name="price" value="{{ old('price') }}" />
                     <input type="text" class="form-control mb-2" placeholder= "soldamount" name="soldamount" value="{{ old('soldamount') }}" />
+                    <input type="file" class="form-control" name="image"/>
                     <input type="submit" class="btn btn-primary" value="Send" />
         </form>
     </div>

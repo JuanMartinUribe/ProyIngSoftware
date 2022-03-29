@@ -27,7 +27,7 @@ class Game extends Model
      * $this->items[] - Item - items where the game exists
     */ 
 
-    protected $fillable = ['name','description','price','genre','developer','soldamount'];
+    protected $fillable = ['name','description','price','genre','developer','soldamount','image'];
 
     public function getId()
     {
@@ -37,6 +37,15 @@ class Game extends Model
     public function setId($id)
     {
         $this->attributes['id'] = $id;
+    }
+    public function getImage()
+    {
+        return $this->attributes['image'];
+    }
+
+    public function setImage($image)
+    {
+        $this->attributes['image'] = $image;
     }
 
     public function getName()
@@ -139,13 +148,14 @@ class Game extends Model
     }   
 
     public static function validate($request)
-    {
+    {   
         $request->validate([
             "name" => "required",
             "description" => "required",
             "price" => "required|numeric|gte:0",
             "genre" => "required",
             "developer" => "required",
+            "image" => "required",
         ]);
 
     }

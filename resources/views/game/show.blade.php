@@ -5,10 +5,8 @@
 <div class="card mb-3">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="https://i.pinimg.com/originals/72/3d/0a/723d0af616b1fe7d5c7e56a3532be3cd.png" class="img-fluid rounded-start"
-        width="200" 
-        height="400"
-      ><br>
+    <img class="image rounded-circle" src="{{asset('/uploads/games/'.$viewData["game"]->getImage() )}}" alt="image" style="width: 160px;height: 160px; padding: 10px; margin: 0px; ">
+    <br>
     </div>
     <div class="col-md-8">
       <div class="card-body">

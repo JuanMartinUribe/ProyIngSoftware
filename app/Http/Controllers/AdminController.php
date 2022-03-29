@@ -57,7 +57,19 @@ class AdminController extends Controller
         ]);*/
 
         Game::validate($request);
-        Game::create($request->only(['name','description','price','genre','developer']));
+        Game::create($request->only(['name','description','price','genre','developer','image']));
+        
+        $game = Game::latest()->first();
+
+        if($request->hasfile('image'))
+        {
+            $file = $request->file('image');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extenstion;
+            $file->move('uploads/games/', $filename);
+            $game->image = $filename;
+        }
+        $game->save();
         return redirect()->route('admin.index');
     }
     public function saveArticle(Request $request)
