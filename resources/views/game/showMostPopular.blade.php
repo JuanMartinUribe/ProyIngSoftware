@@ -6,7 +6,7 @@
 <div class="card mb-3">
   <div class="row g-0">
     <div class="col-md-4">
-    <img class="image rounded-circle" src="{{asset('/uploads/games/'.$viewData["game"]->getImage() )}}" alt="image" style="width: 160px;height: 160px; padding: 10px; margin: 0px; ">
+    <img class="image rounded" src="{{asset('/uploads/games/'.$viewData["game"]->getImage() )}}" alt="image" style="width: 320px;height: 320px; padding: 10px; margin: 0px; ">
     <br>
     </div>
     <div class="col-md-8">
