@@ -44,7 +44,7 @@
     </div>
   </nav>
 
-  <header class="masthead text-white text-center py-4"style="background-color: #750f14;">
+  <header class="masthead text-white text-center py-4"style="background-color: #1c1919;">
     <div class="container d-flex align-items-center flex-column">
       <h2>@yield('subtitle', 'Game store app')</h2>
     </div>
