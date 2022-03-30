@@ -21,7 +21,7 @@
               <p class="card-text">
                 @lang('Description'): {{ $game->getDescription() }}
               </p>
-                @lang('Price'): {{ $game->getPrice() }} <br>
+                @lang('Price'): {{ $game->getPrice() }} @lang('USD')<br>
                 <center>
                   <a class="btn bg-primary text-white" href="{{ route('cart.add', ['id'=> $game->getId() ]) }}">@lang('Add to cart')</a>
                 </center>
@@ -57,7 +57,7 @@
               <p class="card-text">
                 @lang('Description'): {{ $game->getDescription() }}
               </p>
-                @lang('Price'): {{ $game->getPrice() }} <br>
+                @lang('Price'): {{ $game->getPrice() }} @lang('USD') <br>
             </div>
         </div>
         @endforeach

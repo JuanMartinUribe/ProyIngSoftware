@@ -14,7 +14,7 @@
         <h5 class="card-title">
            {{ $viewData["game"]->getName() }}
         </h5>
-        <b>@lang('Price')</b>  : <p class="card-text">{{ $viewData["game"]->getPrice() }}</p>
+        <b>@lang('Price')</b>  : <p class="card-text">{{ $viewData["game"]->getPrice() }} @lang('USD')</p>
         <b>@lang('Developed by')</b>: <p class="card-text">{{ $viewData["game"]->getdeveloper() }}</p>
         <b>@lang('Game description')</b> : <p class="card-text">{{ $viewData["game"]->getDescription() }}</p>
         <b>@lang('Genre')</b> : <p class="card-text">{{ $viewData["game"]->getGenre() }}</p>

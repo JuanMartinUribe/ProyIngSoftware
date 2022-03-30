@@ -20,10 +20,10 @@
               <h5 class="card-title">Order ID: {{$order->getId()}}<br>
               </h5>
               <p class="card-text">  
-              @lang('Total price'): {{$order->getTotal()}}<br>
+              @lang('Total price'): {{$order->getTotal()}} @lang('USD')<br>
               @foreach($order->getItems() as $item)   
                 {{$item->getGame()->getName()}} @lang('Price'):
-                {{$item->getGame()->getPrice()}}<br>
+                {{$item->getGame()->getPrice()}} @lang('USD')<br>
                 @lang('Quantity') : {{$item->getQuantity()}} <br>
               @endforeach
               </p>

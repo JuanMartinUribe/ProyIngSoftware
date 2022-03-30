@@ -11,7 +11,7 @@
       <div class="card-body text-center">
         <a href="{{ route('game.show', ['id'=> $game->getId()]) }}"
           class="btn bg-primary text-white">{{ $game->getName() }}</a> <br>
-          @lang('Price'): {{ $game->getPrice() }} <br>
+          @lang('Price'): {{ $game->getPrice() }} @lang('USD') <br>
           @lang('Amount sold'): {{ $game->getSoldAmount() }} <br>
           @lang('Release date'): {{$game->getCreatedAt()}}
       </div>
