@@ -19,6 +19,7 @@ class Item extends Model
      * $this->attributes['quantity'] - int - contains the quantity
      * $this->attributes['game_id'] - int - contains the id of the related parent game
      * $this->attributes['order_id'] - int - contains the id of the related parent order
+     * $this->attributes['created_at'] - date - contains the date of creation
      * $this->order - Order - parent order of the item
      * $this->game - Game - parent game of the item
      */ 
@@ -71,6 +72,16 @@ class Item extends Model
         $this->attributes['order_id'] = $orderId;
     }
 
+    public function getCreatedAt()
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function setCreatedAt($createdAt)
+    {
+        $this->attributes['created_at'] = $createdAt;
+    }
+    
     public function order()
     {
         return $this->belongsTo(Order::class);

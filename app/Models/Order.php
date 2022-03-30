@@ -18,6 +18,7 @@ class Order extends Model
      * $this->attributes['id'] - int - contains the article primary key (id)
      * $this->attributes['total'] - int - contains the total of the order
      * $this->attributes['user_id'] - int - contains the id of the owner user
+     * $this->attributes['created_at'] - date - contains the date of creation
      * $this->items[] - Item - child items of the order
      * $this->user - User - Owner of the orderr
      */ 
@@ -50,10 +51,22 @@ class Order extends Model
     {
         return $this->attributes["user_id"];
     }
+
+    public function getCreatedAt()
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function setCreatedAt($createdAt)
+    {
+        $this->attributes['created_at'] = $createdAt;
+    }
+
     public function items()
     {
         return $this->hasMany(Item::class);
     }
+
     public function getItems()
     {
         return $this->items;
@@ -63,6 +76,7 @@ class Order extends Model
     {
         $this->items = $items;
     }
+
     public function user()
     {
         return $this->belongsTo(User::class);

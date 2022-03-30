@@ -67,6 +67,16 @@ class Comment extends Model
         $this->attributes['article_id'] = $articleId;
     }
 
+    public function getUserId()
+    {
+        return $this->attributes['user_id'];
+    }   
+    
+    public function setUserId($userId)
+    {
+        $this->attributes['user_id'] = $userId;
+    }
+
     public function article()
     {
         return $this->belongsTo(Article::class);

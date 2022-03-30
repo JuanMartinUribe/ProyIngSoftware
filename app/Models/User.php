@@ -47,6 +47,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * USER ATTRIBUTES
+     * $this->attributes['id'] - int - contains the article primary key (id)
+     * $this->attributes['name'] - string - contains the name of the user
+     * $this->attributes['balance'] - int - contains the balance of the user
+     * $this->attributes['email'] - string - contains the email of the user
+     * $this->attributes['created_at'] - date - contains the date of creation
+     * $this->attributes['isAdmin'] - boolean - contains the role of the user
+     * $this->orders[] - Order - orders of the user
+     * $this->comments[] - Comment - comments of the user
+     * $this->articles[] - Article - articles of the user
+     */ 
+
     public function getId()
     {
         return $this->attributes['id'];
