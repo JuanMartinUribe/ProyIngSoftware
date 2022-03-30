@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->integer('balance')->default('10000000');
-        });
+        Schema::table(
+            'users', function (Blueprint $table) {
+                $table->integer('balance')->default('10000000');
+            }
+        );
     }
 
     /**
@@ -25,8 +27,10 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('balance');
-        });
+        Schema::table(
+            'users', function (Blueprint $table) {
+                $table->dropColumn('balance');
+            }
+        );
     }
 };

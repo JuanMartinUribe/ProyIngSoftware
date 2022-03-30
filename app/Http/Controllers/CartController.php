@@ -19,8 +19,7 @@ class CartController extends Controller
         $games = Game::all();
         $gamesInCart = [];
         $gameIds = $request->session()->get("games"); 
-        if($gameIds)
-        {
+        if($gameIds) {
             $gamesInCart = Game::findMany(array_keys($gameIds));
         }
         $viewData = [];
@@ -28,7 +27,7 @@ class CartController extends Controller
         $viewData["subtitle"] =  "Shopping Cart";
         $viewData["games"] = $games;
         $viewData["gamesInCart"] =$gamesInCart;
-        return view('cart.index')->with("viewData",$viewData);
+        return view('cart.index')->with("viewData", $viewData);
     }
 
     public function add($id, Request $request)
@@ -42,8 +41,7 @@ class CartController extends Controller
     public function purchase(Request $request)
     {
         $gamesInSession = $request->session()->get("games");
-        if ($gamesInSession<1)
-        {
+        if ($gamesInSession<1) {
             return redirect()->back();
         }
         $games = Game::findMany(array_keys($gamesInSession));
@@ -66,8 +64,7 @@ class CartController extends Controller
             $game->save();
         }
         $user = Auth::user();
-        if($total>$user->getBalance())
-        {
+        if($total>$user->getBalance()) {
             return redirect()->back();
         }
         else

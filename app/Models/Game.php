@@ -14,18 +14,18 @@ class Game extends Model
 {
     use HasFactory;
         /**
-     * GAME ATTRIBUTES
-     * $this->attributes['id'] - int - contains the article primary key (id)
-     * $this->attributes['name'] - string - contains the game name
-     * $this->attributes['description'] - string - contains the game description
-     * $this->attributes['created_at'] - date - contains the date of creation
-     * $this->attributes['developer'] - string - contains the game developer
-     * $this->attributes['genre'] - string - contains the game genre
-     * $this->attributes['soldamount'] - int - contains the game sold amount
-     * $this->attributes['price'] - string - contains the game price
-     * $this->articles[] - Article - child articles of game
-     * $this->items[] - Item - items where the game exists
-    */ 
+         * GAME ATTRIBUTES
+         * $this->attributes['id'] - int - contains the article primary key (id)
+         * $this->attributes['name'] - string - contains the game name
+         * $this->attributes['description'] - string - contains the game description
+         * $this->attributes['created_at'] - date - contains the date of creation
+         * $this->attributes['developer'] - string - contains the game developer
+         * $this->attributes['genre'] - string - contains the game genre
+         * $this->attributes['soldamount'] - int - contains the game sold amount
+         * $this->attributes['price'] - string - contains the game price
+         * $this->articles[] - Article - child articles of game
+         * $this->items[] - Item - items where the game exists
+         */ 
 
     protected $fillable = ['name','description','price','genre','developer','soldamount','image'];
 
@@ -149,18 +149,20 @@ class Game extends Model
 
     public static function validate($request)
     {   
-        $request->validate([
+        $request->validate(
+            [
             "name" => "required",
             "description" => "required",
             "price" => "required|numeric|gte:0",
             "genre" => "required",
             "developer" => "required",
             "image" => "required",
-        ]);
+            ]
+        );
     }
-    public static function saveImage(Request $request,$game){
-        if($request->hasfile('image'))
-        {
+    public static function saveImage(Request $request,$game)
+    {
+        if($request->hasfile('image')) {
             $file = $request->file('image');
             $extenstion = $file->getClientOriginalExtension();
             $filename = time().'.'.$extenstion;

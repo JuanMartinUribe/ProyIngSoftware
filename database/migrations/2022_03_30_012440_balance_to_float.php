@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->float('balance')->change();
-        });
+        Schema::table(
+            'users', function (Blueprint $table) {
+                $table->float('balance')->change();
+            }
+        );
     }
 
     /**
@@ -25,8 +27,10 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('float', function (Blueprint $table) {
-            //
-        });
+        Schema::table(
+            'float', function (Blueprint $table) {
+                //
+            }
+        );
     }
 };

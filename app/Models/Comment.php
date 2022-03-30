@@ -15,15 +15,15 @@ class Comment extends Model
     use HasFactory;
 
             /**
-     * COMMENT ATTRIBUTES
-     * $this->attributes['id'] - int - contains the comment primary key (id)
-     * $this->attributes['description'] - string - contains the comment description
-     * $this->attributes['created_at'] - date - contains the date of creation
-     * $this->attributes['article_id'] - int - contains the id of the related parent article
-     * $this->attributes['user_id'] - int - contains the id of the related parent user
-     * $this->Article - Article - parent article of article
-     * $this->user - User - parent user of article
-    */ 
+             * COMMENT ATTRIBUTES
+             * $this->attributes['id'] - int - contains the comment primary key (id)
+             * $this->attributes['description'] - string - contains the comment description
+             * $this->attributes['created_at'] - date - contains the date of creation
+             * $this->attributes['article_id'] - int - contains the id of the related parent article
+             * $this->attributes['user_id'] - int - contains the id of the related parent user
+             * $this->Article - Article - parent article of article
+             * $this->user - User - parent user of article
+             */ 
     
     protected $fillable = ['description','article_id','user_id'];
 
@@ -47,23 +47,28 @@ class Comment extends Model
         $this->attributes['description'] = $description;
     }
 
-    public function getCreatedAt(){
+    public function getCreatedAt()
+    {
         return $this->attributes['created_at'];
     }
 
-    public function setCreatedAt($created_at){
+    public function setCreatedAt($created_at)
+    {
         $this->attributes['created_at'] = $created_at;
     }
 
-    public function getArticleId(){
+    public function getArticleId()
+    {
         return $this->attributes['article_id'];
     }   
     
-    public function setArticleId($articleId){
+    public function setArticleId($articleId)
+    {
         $this->attributes['article_id'] = $articleId;
     }
 
-    public function article(){
+    public function article()
+    {
         return $this->belongsTo(Article::class);
     }
 
@@ -77,7 +82,8 @@ class Comment extends Model
         $this->article = $article;
     }
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
@@ -93,10 +99,12 @@ class Comment extends Model
 
     public static function validate($request)
     {
-        $request->validate([
+        $request->validate(
+            [
             "description" => "required",
             "article_id" => "required",
             "user_id" => "required",
-        ]);
+            ]
+        );
     }
 }

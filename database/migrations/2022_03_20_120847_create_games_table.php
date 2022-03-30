@@ -13,15 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('games', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('name');
-            $table->string('developer');
-            $table->string('description',1500);
-            $table->string('genre');
-            $table->integer('price');
-        });
+        Schema::create(
+            'games', function (Blueprint $table) {
+                $table->id();
+                $table->timestamps();
+                $table->string('name');
+                $table->string('developer');
+                $table->string('description', 1500);
+                $table->string('genre');
+                $table->integer('price');
+            }
+        );
     }
 
     /**

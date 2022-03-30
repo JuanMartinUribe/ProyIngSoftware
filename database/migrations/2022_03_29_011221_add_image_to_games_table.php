@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('games', function (Blueprint $table) {
-            $table->string('image');
-        });
+        Schema::table(
+            'games', function (Blueprint $table) {
+                $table->string('image');
+            }
+        );
     }
 
     /**
@@ -25,8 +27,10 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('games', function (Blueprint $table) {
-            $table->dropColumn('image');
-        });
+        Schema::table(
+            'games', function (Blueprint $table) {
+                $table->dropColumn('image');
+            }
+        );
     }
 };

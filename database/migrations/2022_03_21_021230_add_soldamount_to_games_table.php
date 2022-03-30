@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('games', function (Blueprint $table) {
-            $table->integer('soldamount')->default('0');
-        });
+        Schema::table(
+            'games', function (Blueprint $table) {
+                $table->integer('soldamount')->default('0');
+            }
+        );
     }
 
     /**
@@ -25,8 +27,10 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('games', function (Blueprint $table) {
-            $table->dropColumn('soldamount');
-        });
+        Schema::table(
+            'games', function (Blueprint $table) {
+                $table->dropColumn('soldamount');
+            }
+        );
     }
 };

@@ -13,17 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('items', function (Blueprint $table) {
-            $table->id();
-            $table->integer('price');
-            $table->integer('quantity');
-            $table->unsignedBigInteger('order_id');
-            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
-            $table->unsignedBigInteger('game_id');
-            $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
+        Schema::create(
+            'items', function (Blueprint $table) {
+                $table->id();
+                $table->integer('price');
+                $table->integer('quantity');
+                $table->unsignedBigInteger('order_id');
+                $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
+                $table->unsignedBigInteger('game_id');
+                $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
             
-            $table->timestamps();
-        });
+                $table->timestamps();
+            }
+        );
     }
 
     /**

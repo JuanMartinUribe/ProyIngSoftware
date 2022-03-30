@@ -97,11 +97,13 @@ class User extends Authenticatable
         $this->attributes["balance"] = $balance;
     }
 
-    public function getCreatedAt(){
+    public function getCreatedAt()
+    {
         return $this->attributes['created_at'];
     }
 
-    public function setCreatedAt($created_at){
+    public function setCreatedAt($created_at)
+    {
         $this->attributes['created_at'] = $created_at;
     }
 

@@ -20,7 +20,7 @@ class Order extends Model
      * $this->attributes['user_id'] - int - contains the id of the owner user
      * $this->items[] - Item - child items of the order
      * $this->user - User - Owner of the orderr
-    */ 
+     */ 
     public function getId()
     {
         return $this->attributes['id'];
@@ -41,11 +41,13 @@ class Order extends Model
         $this->attributes['total'] = $t;
     }
 
-    public function setUserId($userId){
+    public function setUserId($userId)
+    {
         $this->attributes["user_id"] = $userId;
     }
 
-    public function getUserId(){
+    public function getUserId()
+    {
         return $this->attributes["user_id"];
     }
     public function items()
@@ -61,7 +63,8 @@ class Order extends Model
     {
         $this->items = $items;
     }
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 }

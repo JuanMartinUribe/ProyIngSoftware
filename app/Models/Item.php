@@ -21,7 +21,7 @@ class Item extends Model
      * $this->attributes['order_id'] - int - contains the id of the related parent order
      * $this->order - Order - parent order of the item
      * $this->game - Game - parent game of the item
-    */ 
+     */ 
     public function getId()
     {
         return $this->attributes['id'];
@@ -71,19 +71,23 @@ class Item extends Model
         $this->attributes['order_id'] = $orderId;
     }
 
-    public function order(){
+    public function order()
+    {
         return $this->belongsTo(Order::class);
     }
 
-    public function getOrder(){
+    public function getOrder()
+    {
         return $this->order;
     }
     
-    public function game(){
+    public function game()
+    {
         return $this->belongsTo(Game::class);
     }
 
-    public function getGame(){
+    public function getGame()
+    {
         return $this->game;
     }
 }
