@@ -18,10 +18,12 @@
               <h6 class="card-subtitle mb-2 text-muted">
                 @lang('Genre'): {{ $game->getGenre() }}
               </h6>
-              <p class="card-text">
-                @lang('Description'): {{ $game->getDescription() }}
-              </p>
+
                 @lang('Price'): {{ $game->getPrice() }} @lang('USD')<br>
+                <p class="card-text">
+                {{ $game->getDeveloper() }}
+              </p>
+            
                 <center>
                   <a class="btn bg-primary text-white" href="{{ route('cart.add', ['id'=> $game->getId() ]) }}">@lang('Add to cart')</a>
                 </center>

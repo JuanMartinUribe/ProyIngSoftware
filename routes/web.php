@@ -51,6 +51,7 @@ Route::post('/games/delete','App\Http\Controllers\GameController@delete')->name(
 Route::post('/games/update','App\Http\Controllers\GameController@update')->name("game.update");
 Route::post('/articles/update','App\Http\Controllers\ArticleController@update')->name("article.update");
 Route::get('/admin/article/edit/{id}','App\Http\Controllers\ArticleController@edit')->name("article.edit");
+
 Auth::routes();
 
 
