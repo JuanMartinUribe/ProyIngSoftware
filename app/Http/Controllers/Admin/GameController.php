@@ -61,12 +61,11 @@ class GameController extends Controller
     }
     public function update(Request $request)
     {
-
         $game = Game::find($request->id);
         Game::validate($request);
         Game::where('id', $request->id)->update($request->only(['name','description','price','genre','developer','image','soldamount']));
         Game::saveImage($request, $game);
-        return view('admin.index');
+        return view("admin.index");
 
     }
     public function delete(Request $request)

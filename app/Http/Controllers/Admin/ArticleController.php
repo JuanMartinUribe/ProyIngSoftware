@@ -62,7 +62,7 @@ class ArticleController extends Controller
 
         Article::validate($request);
         Article::where('id', $request->id)->update($request->only(['name','description','game_id','user_id']));
-        return view('admin.index');
+        return view("admin.index");
 
     }
     public function delete(Request $request)
