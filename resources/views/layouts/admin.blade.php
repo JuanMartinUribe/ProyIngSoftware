@@ -18,8 +18,8 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ms-auto">
             <a class="nav-link active text-white" href="{{ route('admin.index') }}">@lang('Admin home')</a>
-            <a class="nav-link active text-white" href="{{ route('game.adminIndex') }}">@lang('Games')</a>
-            <a class="nav-link active text-white" href="{{ route('article.adminIndex') }}">@lang('Articles')</a>
+            <a class="nav-link active text-white" href="{{ route('admin.gameIndex') }}">@lang('Games')</a>
+            <a class="nav-link active text-white" href="{{ route('admin.articleIndex') }}">@lang('Articles')</a>
             <div class="vr bg-white mx-2 d-none d-lg-block"></div>
             <a class="nav-link active text-white" href="{{ route('home.index') }}">@lang('Back to user page')</a>
           </div>

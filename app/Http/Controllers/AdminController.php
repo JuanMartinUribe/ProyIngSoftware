@@ -15,51 +15,7 @@ use App\Models\Article;
 
 class AdminController extends Controller
 {
-    public function index()
-    {   
-        $user = Auth::user();
-        
-        if ($user && $user->getIsAdmin()) {
-            return view('admin.index');
-        }
-        else
-        {
-            abort(404);
-        }
-    }
 
-    public function articleIndex()
-    {   
-        $user = Auth::user();
-        $viewData = [];
-        $articles = Article::all();
-        $viewData["articles"] = $articles;
-        
-        if ($user && $user->getIsAdmin()) {
-            return view('admin.articleIndex')->with("viewData", $viewData);
-        }
-        else
-        {
-            abort(404);
-        }
-    }
-    
-    public function gameIndex()
-    {   
-
-        $viewData = [];
-        $games = Game::all();
-        $viewData["games"] = $games;
-        
-        $user = Auth::user();
-        if ($user && $user->getIsAdmin()) {
-            return view('admin.gameIndex')->with("viewData", $viewData);
-        }
-        else
-        {
-            abort(404);
-        }
-    }
     public function createArticle()
     {   
         $user = Auth::user();
