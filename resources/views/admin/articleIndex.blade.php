@@ -10,11 +10,11 @@
             {{$article->getId() }} <br>
             {{$article->getName() }} <br>
             {{$article->getDescription() }} <br>
-            <form method="post" action="{{ route('article.delete',['id'=> $article->getId()])}}" >
+            <form method="post" action="{{ route('admin.articleDelete',['id'=> $article->getId()])}}" >
               @csrf
               <input type="submit" value="Delete Article" />
             </form>
-            <a href="{{ route('article.edit',['id'=> $article->getId()]) }} ">Update</a>  
+            <a href="{{ route('admin.articleEdit',['id'=> $article->getId()]) }} ">Update</a>  
       </div>    
     </div>
   </div>

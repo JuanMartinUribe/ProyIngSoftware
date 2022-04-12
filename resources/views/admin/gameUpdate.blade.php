@@ -3,7 +3,7 @@
 
 <center>
     <div class="card-body text-center" style="width: 25rem;">
-        <form action="{{ route('game.update',['id'=> $game->getId()]) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.gameUpdate',['id'=> $game->getId()]) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <input type="text" class="form-control mb-2" placeholder= "name" name="name" value="{{ $game->getName() }}" />
                     <input type="text" class="form-control mb-2" placeholder= "description" name="description" value="{{ $game->getDescription() }}" />

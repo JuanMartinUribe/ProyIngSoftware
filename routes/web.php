@@ -44,15 +44,15 @@ Route::get('/admin/articleindex', 'App\Http\Controllers\Admin\ArticleController@
 Route::get('/admin/creategame', 'App\Http\Controllers\Admin\GameController@create')->name("admin.createGame");
 Route::get('/admin/createarticle', 'App\Http\Controllers\Admin\ArticleController@create')->name("admin.createArticle");
 
-Route::get('/admin/game/edit/{id}', 'App\Http\Controllers\Admin\GameController@edit')->name("game.edit");
-Route::post('/admin/savegame', 'App\Http\Controllers\Admin\GameController@save')->name("game.adminSave");
-Route::post('/games/update', 'App\Http\Controllers\Admin\GameController@update')->name("game.update");
-Route::post('/games/delete', 'App\Http\Controllers\Admin\GameController@delete')->name("game.delete");
+Route::get('/admin/game/edit/{id}', 'App\Http\Controllers\Admin\GameController@edit')->name("admin.gameEdit");
+Route::post('/admin/game/save', 'App\Http\Controllers\Admin\GameController@save')->name("admin.gameSave");
+Route::post('/admin/games/update', 'App\Http\Controllers\Admin\GameController@update')->name("admin.gameUpdate");
+Route::post('/admin/games/delete', 'App\Http\Controllers\Admin\GameController@delete')->name("admin.gameDelete");
 
-Route::post('/admin/savearticle', 'App\Http\Controllers\Admin\ArticleController@save')->name("article.adminSave");
+Route::get('/admin/article/edit/{id}', 'App\Http\Controllers\Admin\ArticleController@edit')->name("admin.articleEdit");
+Route::post('/admin/article/save', 'App\Http\Controllers\Admin\ArticleController@save')->name("admin.articleSave");
 Route::post('/admin/article/delete', 'App\Http\Controllers\Admin\ArticleController@delete')->name("admin.articleDelete");
-Route::post('/articles/update', 'App\Http\Controllers\Admin\ArticleController@update')->name("article.update");
-Route::get('/admin/article/edit/{id}', 'App\Http\Controllers\Admin\ArticleController@edit')->name("article.edit");
+Route::post('/admin/articles/update', 'App\Http\Controllers\Admin\ArticleController@update')->name("admin.articleUpdate");
 
 Auth::routes();
 
