@@ -23,27 +23,13 @@ class GameController extends Controller
         $viewData = [];
         $games = Game::all();
         $viewData["games"] = $games;
-        
-        $user = Auth::user();
-        if ($user && $user->getIsAdmin()) {
-            return view('admin.gameIndex')->with("viewData", $viewData);
-        }
-        else
-        {
-            abort(404);
-        }
+
+        return view('admin.gameIndex')->with("viewData", $viewData);
+  
     }
     public function create()
     {   
-        $user = Auth::user();
-        if ($user && $user->getIsAdmin()) {
-            return view('admin.createGame');
-        }
-        else
-        {
-            abort(404);
-        }
-        
+        return view('admin.createGame');
     }
     public function save(Request $request)
     {

@@ -16,15 +16,8 @@ class HomeController extends Controller
 {
     public function index()
     {   
-        $user = Auth::user();
-        
-        if ($user && $user->getIsAdmin()) {
             return view('admin.index');
-        }
-        else
-        {
-            abort(404);
-        }
     }
+    
 
 }

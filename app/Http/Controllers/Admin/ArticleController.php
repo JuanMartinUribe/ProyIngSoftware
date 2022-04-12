@@ -18,31 +18,19 @@ class ArticleController extends Controller
 {
     public function index()
     {   
-        $user = Auth::user();
         $viewData = [];
         $articles = Article::all();
         $viewData["articles"] = $articles;
         
-        if ($user && $user->getIsAdmin()) {
-            return view('admin.articleIndex')->with("viewData", $viewData);
-        }
-        else
-        {
-            abort(404);
-        }
+        
+        return view('admin.articleIndex')->with("viewData", $viewData);
+        
+
     }
 
     public function create()
     {   
-        $user = Auth::user();
-        if ($user && $user->getIsAdmin()) {
-            return view('admin.createArticle');
-        }
-        else
-        {
-            abort(404);
-        }
-        
+        return view('admin.createArticle');
     }
     public function save(Request $request)
     {

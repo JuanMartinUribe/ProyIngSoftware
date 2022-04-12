@@ -38,6 +38,8 @@ Route::post('/comment/save', 'App\Http\Controllers\CommentController@save')->nam
 Route::post('/comment/delete', 'App\Http\Controllers\CommentController@delete')->name("comment.delete");
 Route::post('/article/delete', 'App\Http\Controllers\ArticleController@delete')->name("article.delete");
 
+Route::middleware('admin')->group(function () {
+
 Route::get('/admin', 'App\Http\Controllers\Admin\HomeController@index')->name("admin.index");
 Route::get('/admin/gameindex', 'App\Http\Controllers\Admin\GameController@index')->name("admin.gameIndex");
 Route::get('/admin/articleindex', 'App\Http\Controllers\Admin\ArticleController@index')->name("admin.articleIndex");
@@ -53,6 +55,7 @@ Route::get('/admin/article/edit/{id}', 'App\Http\Controllers\Admin\ArticleContro
 Route::post('/admin/article/save', 'App\Http\Controllers\Admin\ArticleController@save')->name("admin.articleSave");
 Route::post('/admin/article/delete', 'App\Http\Controllers\Admin\ArticleController@delete')->name("admin.articleDelete");
 Route::post('/admin/articles/update', 'App\Http\Controllers\Admin\ArticleController@update')->name("admin.articleUpdate");
+});
 
 Auth::routes();
 
