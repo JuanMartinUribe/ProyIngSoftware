@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Game;
 use App\Models\Article;
+use App\utils\SaveImage;
 
 class GameController extends Controller
 {
@@ -50,7 +51,7 @@ class GameController extends Controller
         $game = Game::find($request->id);
         Game::validate($request);
         Game::where('id', $request->id)->update($request->only(['name','description','price','genre','developer','image','soldamount']));
-        Game::saveImage($request, $game);
+        SaveImage::saveImage($request, $game);
         return view("admin.index");
 
     }
