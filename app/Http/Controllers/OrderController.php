@@ -18,8 +18,8 @@ class OrderController extends Controller
     {   
         $viewData = [];
         $viewData["orders"] = Order::where('user_id',Auth::id())->with('items')->get();
-        $viewData["title"] = "Orders";
-        $viewData["subtitle"] = "Your Orders";
+        $viewData["title"] = __('Orders');
+        $viewData["subtitle"] = __('Your orders');
         return view('order.index')->with('viewData',$viewData);
     }
 
