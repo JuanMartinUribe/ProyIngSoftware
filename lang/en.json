@@ -78,6 +78,8 @@
     "Your orders": "Your orders",
     "English": "English",
     "Spanish": "Spanish",
+    "Title": "Title",
+    "Author": "Author",
     "Click on the following button to create a new game.": "Click on the following button to create a new game.",
     "Click on the following button to create a new article.": "Click on the following button to create a new article.",
     "The :attribute must contain at least one letter.": "The :attribute must contain at least one letter.",

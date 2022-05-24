@@ -7,7 +7,7 @@
   <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #615c5c;">
+  <nav class="navbar fixed-bottom navbar-expand-lg navbar-light" style="background-color: #615c5c;">
 
       <div class="container">
         <a class="navbar-brand" href="{{ route('home.index') }}"><img src="https://i.ibb.co/rsNfwLL/Logo.png" width="200" height="100"></a>

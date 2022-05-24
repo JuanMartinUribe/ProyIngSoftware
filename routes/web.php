@@ -41,7 +41,7 @@ Route::post('/article/delete','App\Http\Controllers\ArticleController@delete')->
 
 Route::get('/admin', 'App\Http\Controllers\AdminController@index')->name("admin.index");
 Route::get('/admin/creategame', 'App\Http\Controllers\AdminController@createGame')->name("admin.createGame");
-Route::get('/admin/createarticle', 'App\Http\Controllers\AdminController@adminCreate')->name("admin.createArticle");
+Route::get('/admin/createarticle', 'App\Http\Controllers\AdminController@createArticle')->name("admin.createArticle");
 Route::get('/admin/gameindex','App\Http\Controllers\AdminController@gameIndex')->name("game.adminIndex");
 Route::get('/admin/game/edit/{id}','App\Http\Controllers\gameController@edit')->name("game.edit");
 Route::get('/admin/articleindex', 'App\Http\Controllers\AdminController@articleIndex')->name("article.adminIndex");
