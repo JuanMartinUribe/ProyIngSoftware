@@ -39,19 +39,24 @@ Route::post('/comment/save', 'App\Http\Controllers\CommentController@save')->nam
 Route::post('/comment/delete', 'App\Http\Controllers\CommentController@delete')->name("comment.delete");
 Route::post('/article/delete', 'App\Http\Controllers\ArticleController@delete')->name("article.delete");
 
-Route::get('/admin', 'App\Http\Controllers\AdminController@index')->name("admin.index");
-Route::get('/admin/creategame', 'App\Http\Controllers\AdminController@createGame')->name("admin.createGame");
-Route::get('/admin/createarticle', 'App\Http\Controllers\AdminController@adminCreate')->name("admin.createArticle");
-Route::get('/admin/gameindex', 'App\Http\Controllers\AdminController@gameIndex')->name("game.adminIndex");
-Route::get('/admin/game/edit/{id}', 'App\Http\Controllers\GameController@edit')->name("game.edit");
-Route::get('/admin/articleindex', 'App\Http\Controllers\AdminController@articleIndex')->name("article.adminIndex");
-Route::post('/admin/savegame', 'App\Http\Controllers\GameController@adminSave')->name("game.adminSave");
-Route::post('/admin/savearticle', 'App\Http\Controllers\ArticleController@adminSave')->name("article.adminSave");
-Route::post('/article/delete', 'App\Http\Controllers\ArticleController@delete')->name("article.delete");
-Route::post('/games/delete', 'App\Http\Controllers\GameController@delete')->name("game.delete");
-Route::post('/games/update', 'App\Http\Controllers\GameController@update')->name("game.update");
-Route::post('/articles/update', 'App\Http\Controllers\ArticleController@update')->name("article.update");
-Route::get('/admin/article/edit/{id}', 'App\Http\Controllers\ArticleController@edit')->name("article.edit");
+Route::middleware('admin')->group(function () {
+
+Route::get('/admin', 'App\Http\Controllers\Admin\HomeController@index')->name("admin.index");
+Route::get('/admin/gameindex', 'App\Http\Controllers\Admin\GameController@index')->name("admin.gameIndex");
+Route::get('/admin/articleindex', 'App\Http\Controllers\Admin\ArticleController@index')->name("admin.articleIndex");
+Route::get('/admin/creategame', 'App\Http\Controllers\Admin\GameController@create')->name("admin.createGame");
+Route::get('/admin/createarticle', 'App\Http\Controllers\Admin\ArticleController@create')->name("admin.createArticle");
+
+Route::get('/admin/game/edit/{id}', 'App\Http\Controllers\Admin\GameController@edit')->name("admin.gameEdit");
+Route::post('/admin/game/save', 'App\Http\Controllers\Admin\GameController@save')->name("admin.gameSave");
+Route::post('/admin/games/update', 'App\Http\Controllers\Admin\GameController@update')->name("admin.gameUpdate");
+Route::post('/admin/games/delete', 'App\Http\Controllers\Admin\GameController@delete')->name("admin.gameDelete");
+
+Route::get('/admin/article/edit/{id}', 'App\Http\Controllers\Admin\ArticleController@edit')->name("admin.articleEdit");
+Route::post('/admin/article/save', 'App\Http\Controllers\Admin\ArticleController@save')->name("admin.articleSave");
+Route::post('/admin/article/delete', 'App\Http\Controllers\Admin\ArticleController@delete')->name("admin.articleDelete");
+Route::post('/admin/articles/update', 'App\Http\Controllers\Admin\ArticleController@update')->name("admin.articleUpdate");
+});
 
 Auth::routes();
 Route::get('locale/{locale}', function ($locale){

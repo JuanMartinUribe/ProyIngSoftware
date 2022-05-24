@@ -3,7 +3,7 @@
 
 <center>
     <div class="card-body text-center" style="width: 25rem;">
-        <form action="{{ route('article.update',['id'=> $article->getId()]) }}" method="post">
+        <form action="{{ route('admin.articleUpdate',['id'=> $article->getId()]) }}" method="post">
                     @csrf
                     <input type="text" class="form-control mb-2" placeholder= "name" name="name" value="{{ $article->getName() }}" />
                     <input type="text" class="form-control mb-2" placeholder= "description" name="description" value="{{ $article->getDescription() }}" />

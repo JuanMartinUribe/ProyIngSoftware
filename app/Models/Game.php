@@ -172,6 +172,6 @@ class Game extends Model
         }
         $game->save();
     }
-
     
+
 }

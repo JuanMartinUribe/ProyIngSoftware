@@ -3,7 +3,7 @@
 
 <center>
     <div class="card-body text-center" style="width: 25rem;">
-        <form action="{{ route('game.adminSave')}}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.gameSave')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <input type="text" class="form-control mb-2" placeholder= "name" name="name" value="{{ old('name') }}" />
                     <input type="text" class="form-control mb-2" placeholder= "description" name="description" value="{{ old('description') }}" />

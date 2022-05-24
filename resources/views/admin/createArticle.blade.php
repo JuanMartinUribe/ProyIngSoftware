@@ -3,7 +3,7 @@
 
 <center>
     <div class="card-body text-center" style="width: 25rem;">
-        <form action="{{ route('article.adminSave')}}" method="post">
+        <form action="{{ route('admin.articleSave')}}" method="post">
                     @csrf
                     <input type="text" class="form-control mb-2" placeholder= "name" name="name" value="{{ old('name') }}" />
                     <input type="text" class="form-control mb-2" placeholder= "description" name="description" value="{{ old('description') }}" />

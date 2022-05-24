@@ -50,28 +50,4 @@ class ArticleController extends Controller
         Article::where('id', $id)->delete();
         return redirect()->back();
     }
-
-    /* Methods related with game cruds from admin page*/
-
-    public function adminSave(Request $request)
-    {
-        Article::validate($request);
-        Article::create($request->only(['name','description','user_id','game_id']));
-        return redirect()->route('admin.index');
-    }
-
-    public function edit(Request $request)
-    {
-        $article = Article::find($request->id);
-        
-        return view('admin.articleUpdate')->with("article", $article);
-    }
-    public function update(Request $request)
-    {
-
-        Article::validate($request);
-        Article::where('id', $request->id)->update($request->only(['name','description','game_id','user_id']));
-        return view('admin.index');
-
-    }
 }
