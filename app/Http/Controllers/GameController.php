@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;    
 use App\Models\Game;
+
 class GameController extends Controller
 {
     public function index()
@@ -14,8 +15,8 @@ class GameController extends Controller
         $viewData = [];
         //$viewData["games"] = Game::all();
         //$viewData["games"] = Product::with('comments')->get(); para relaciones entre clases
-        $viewData["title"] = "Products - Online Store";
-        $viewData["subtitle"] =  "List of Games";
+        $viewData["title"] = __('Products store');
+        $viewData["subtitle"] =  __('Games list');
         $viewData["games"] = Game::orderBy('id', 'DESC')->get();
         return view('game.index') -> with("viewData", $viewData);
     }
@@ -25,8 +26,8 @@ class GameController extends Controller
         $game = Game::findOrFail($id);
         $viewData = [];
         $viewData["articles"] = $game->getArticles();
-        $viewData["title"] = $game->getName()." - Online Store";
-        $viewData["subtitle"] =  $game->getName()." - Game information";
+        $viewData["title"] = $game->getName().__('Store');
+        $viewData["subtitle"] =  $game->getName().__('Game info');
         $viewData["game"] = $game;
         return view('game.show') -> with("viewData", $viewData);
     }
@@ -35,18 +36,18 @@ class GameController extends Controller
         $viewData = [];
         $games = Game::orderBy('soldamount', 'DESC')->take(3)->get();
         $viewData["games"] = $games;    
-        $viewData["title"] = "Most Selled Games";
-        $viewData["subtitle"] = "Top 3 BestSellers";
-        return view('game.showFilteredGames') -> with("viewData", $viewData);
+        $viewData["title"] = __('Most selled');
+        $viewData["subtitle"] = __('Top sellers');
+        return view('game.showFilteredGames') -> with("viewData",$viewData);
     }
     public function showCheapGames()
     {
         $viewData = [];
         $games = Game::orderBy('price')->take(5)->get();
         $viewData["games"] = $games;    
-        $viewData["title"] = "Cheap Games";
-        $viewData["subtitle"] = "5 low price games";
-        return view('game.showFilteredGames') -> with("viewData", $viewData);
+        $viewData["title"] = __('Cheap');
+        $viewData["subtitle"] = __('Low price');
+        return view('game.showFilteredGames') -> with("viewData",$viewData);
     }
 
 
@@ -65,8 +66,8 @@ class GameController extends Controller
         }
         $viewData = [];
         $viewData["game"] = $mostPopular;
-        $viewData["title"] = "TOP 1";
-        $viewData["subtitle"] = "Trending Game";
+        $viewData["title"] = __("Top 1");
+        $viewData["subtitle"] = __("Trending");
         $viewData["articles"] = $mostPopular->getArticles();
         return view('game.showMostPopular')->with("viewData", $viewData);
     }
@@ -76,9 +77,9 @@ class GameController extends Controller
         $games = Game::orderBy('created_at', 'DESC')->take(3)->get();
         $viewData = [];
         $viewData["games"] = $games;    
-        $viewData["title"] = "Most Selled Games";
-        $viewData["subtitle"] = "New Releases";
-        return view('game.showFilteredGames') -> with("viewData", $viewData);
+        $viewData["title"] = __('Most selled');
+        $viewData["subtitle"] = __('Releases');
+        return view('game.showFilteredGames') -> with("viewData",$viewData);
     }
 
     public function delete(Request $request)

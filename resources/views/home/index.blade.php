@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Home Page - Online Store')
+@section('title', __('Home Page - Online Store'))
 @section('content')
 
 <body style="background-color:#8d95dd;">

@@ -6,6 +6,7 @@ Jmuribef@eafit.edu.co
 */
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\App;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,5 +54,8 @@ Route::post('/articles/update', 'App\Http\Controllers\ArticleController@update')
 Route::get('/admin/article/edit/{id}', 'App\Http\Controllers\ArticleController@edit')->name("article.edit");
 
 Auth::routes();
-
+Route::get('locale/{locale}', function ($locale){
+    session()->put('locale',$locale);
+    return Redirect::back();
+});
 

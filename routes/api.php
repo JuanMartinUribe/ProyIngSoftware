@@ -14,8 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get(
-    '/user', function (Request $request) {
-        return $request->user();
-    }
-);
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+Route::get('/games', 'App\Http\Controllers\Api\GameApi@index')->name("api.game.index");
+Route::get('/games/paginate', 'App\Http\Controllers\Api\GameApi@paginate')->name("api.game.paginate");
+Route::get('/games/{id}', 'App\Http\Controllers\Api\GameApi@show')->name("api.game.show");

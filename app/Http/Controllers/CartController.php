@@ -23,8 +23,8 @@ class CartController extends Controller
             $gamesInCart = Game::findMany(array_keys($gameIds));
         }
         $viewData = [];
-        $viewData["title"] = "Cart - Online Store";
-        $viewData["subtitle"] =  "Shopping Cart";
+        $viewData["title"] = __('Cart store');
+        $viewData["subtitle"] =  __('Shopping cart');
         $viewData["games"] = $games;
         $viewData["gamesInCart"] =$gamesInCart;
         return view('cart.index')->with("viewData", $viewData);

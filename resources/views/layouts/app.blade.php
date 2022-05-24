@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
   <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
-  <title>@yield('title', 'Online Game Store')</title>
+  <title>@yield('title', __('Online Game Store'))</title>
 </head>
 <body>
   <!-- header -->
@@ -38,15 +38,18 @@
             @csrf
           </form>
           @endguest
-
+          <a class="nav-link active text-white" href="{{ url('locale/es') }}">@lang('Spanish')</a>
+          <a class="nav-link active text-white" href="{{ url('locale/en') }}">@lang('English')</a>
         </div>
       </div>
     </div>
   </nav>
-
+  
+  
+  
   <header class="masthead text-white text-center py-4"style="background-color: #1c1919;">
     <div class="container d-flex align-items-center flex-column">
-      <h2>@yield('subtitle', 'Game store app')</h2>
+      <h2>@yield('subtitle', __('Game store app'))</h2>
     </div>
   </header>
   <!-- header -->
@@ -57,4 +60,5 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
   </script>
 </body>
+
 </html>
