@@ -501,12 +501,12 @@
     <script>
         const CONFIGURATION = {
             "locations": [{
-                "title": "Cra. 43B #8-11",
-                "address1": "Cra. 43B #8-11",
+                "title": "Cra. 49 Cl. 7 Sur #50",
+                "address1": "Cra. 49 Cl. 7 Sur #50",
                 "address2": "Medellín, El Poblado, Medellín, Antioquia, Colombia",
                 "coords": {
-                    "lat": 6.208836475831105,
-                    "lng": -75.57149048584441
+                    "lat": 6.199720061605698,
+                    "lng": -75.57921982341861
                 },
                 "placeId": "EkVDcmEuIDQzQiAjOC0xMSwgTWVkZWxsw61uLCBFbCBQb2JsYWRvLCBNZWRlbGzDrW4sIEFudGlvcXVpYSwgQ29sb21iaWEiUBJOCjQKMgkJcnT-KihEjhF7ikJNaFlbixoeCxDuwe6hARoUChIJf3kbIo-CRo4R-Ge6E_04LAEMEAsqFAoSCdGx7MMqKESOETepp-ZmS0TW"
             }],
@@ -539,14 +539,11 @@
         }
     </script>
     <script id="locator-result-items-tmpl" type="text/x-handlebars-template">
-        #each locations
-<li class="location-result" data-location-index="index">
-<button class="select-location">
-<h2 class="name">title</h2>
-</button>
-<div class="address">address1<br>address2</div>
-</li>
-/each
+        <center> 
+          <h1> 
+              @lang('GG NO TEAM') 
+            </h1>
+        </center>
 </script>
 </head>
 
