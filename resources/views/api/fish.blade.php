@@ -14,7 +14,7 @@
                 </div>
                 <div class="card-body">
                     <ul class="ul-list">
-                        @foreach ($data['courses'] as $item)
+                        @foreach ($data['fishes'] as $item)
                             <li class="card card-item ">
                                 <h5 class="card-header"> {{ $item['name'] }}</h5>
                                 <div class="card-body card-item-cart">

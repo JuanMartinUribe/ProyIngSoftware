@@ -111,7 +111,7 @@ class Game extends Model
     public function getCreatedAt()
     {
         return $this->attributes['created_at'];
-    }
+    }   
 
     public function setCreatedAt($createdAt)
     {

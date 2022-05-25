@@ -16,7 +16,7 @@ class FishApi extends Controller
     {
         $answer = Http::get("http://adventurefishalist.tk/public/api/locations");
         $answer->json();
-        $data['courses'] = $answer['data'];
+        $data['fishes'] = $answer['data'];
        # $data['courses'] = $data['courses'];
         #dd($data);
         return view('api.fish',compact('data'));

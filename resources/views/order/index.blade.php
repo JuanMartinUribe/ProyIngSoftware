@@ -25,7 +25,9 @@
                 {{$item->getGame()->getName()}} @lang('Price'):
                 {{$item->getGame()->getPrice()}} @lang('USD')<br>
                 @lang('Quantity') : {{$item->getQuantity()}} <br>
+                
               @endforeach
+              <a href="{{ route('file.generate',['id'=> $order->getId()]) }}">generar reporte</a>
               </p>
             </div>
           </div>
