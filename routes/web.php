@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\App;
 */
 
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home.index");
+Route::get('/fishes', 'App\Http\Controllers\Api\FishApi@index')->name("fish.index");
+Route::get('/store', 'App\Http\Controllers\HomeController@maps')->name("home.maps");
 Route::get('/about', 'App\Http\Controllers\HomeController@about')->name("home.about"); 
 Route::get('/games', 'App\Http\Controllers\GameController@index')->name("game.index");
 Route::get('/games/showtopsellers', 'App\Http\Controllers\GameController@showTopSellers')->name("game.showTopSellers");
@@ -57,7 +59,6 @@ Route::post('/admin/article/save', 'App\Http\Controllers\Admin\ArticleController
 Route::post('/admin/article/delete', 'App\Http\Controllers\Admin\ArticleController@delete')->name("admin.articleDelete");
 Route::post('/admin/articles/update', 'App\Http\Controllers\Admin\ArticleController@update')->name("admin.articleUpdate");
 });
-
 Auth::routes();
 Route::get('locale/{locale}', function ($locale){
     session()->put('locale',$locale);

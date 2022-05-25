@@ -26,6 +26,7 @@
           <a class="nav-link active text-white" href="{{ route('game.showRecentGames') }}">@lang('New releases')</a>
           <a class="nav-link active text-white" href="{{ route('game.showMostPopular') }}">@lang('Trending game')</a>
           <div class="vr bg-white mx-2 d-none d-lg-block"></div>
+          <a class="nav-link active text-white" href="{{ route('home.maps') }}">@lang('Maps')</a>
           <a class="nav-link active text-white" href="{{ route('home.index') }}">@lang('Home')</a>
           <a class="nav-link active text-white" href="{{ route('home.about') }}">@lang('About')</a>
           @guest
