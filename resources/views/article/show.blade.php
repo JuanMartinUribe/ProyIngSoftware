@@ -11,7 +11,7 @@
         <h5 class="card-title">
            {{ $viewData["article"]->getName() }} <br> 
            {{ $viewData["article"]->getCreatedAt() }} <br>
-           Author : {{$viewData["article"]->getUser()->getName()}}
+           @lang('Author') : {{$viewData["article"]->getUser()->getName()}}
         </h5>
         <p class="card-text"><b> @lang('Description') </b> <br> {{ $viewData["article"]->getDescription() }}</p>
         @foreach ($viewData["comments"] as $comment)
@@ -32,7 +32,7 @@
         <br>
         <form action="{{ route('comment.save')}}" method="post">
           @csrf
-          <input type="text" class="form-control mb-2" placeholder= "@lang('Comment here')" name="description" value="{{ old('description') }}" />
+          <textarea id="text" class="testInput" style="height:200px; width:600px;font-size:14pt;" placeholder= "@lang('Comment here')" name="description" value="{{ old('description') }}"> </textarea>
           <input id="article_id" name="article_id" type="hidden" value={{$viewData["article"]->getId()}} >
           <input id="user_id" name="user_id" type="hidden" value={{Auth::id()}} >
           <input type="submit" class="btn btn-primary" value="@lang('Add comment')" />
