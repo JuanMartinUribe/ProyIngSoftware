@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\App;
 */
 
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home.index");
+Route::get('/fishes', 'App\Http\Controllers\Api\FishApi@index')->name("fish.index");
 Route::get('/store', 'App\Http\Controllers\HomeController@maps')->name("home.maps");
 Route::get('/about', 'App\Http\Controllers\HomeController@about')->name("home.about"); 
 Route::get('/games', 'App\Http\Controllers\GameController@index')->name("game.index");
