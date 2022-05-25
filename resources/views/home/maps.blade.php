@@ -1,5 +1,5 @@
 <head>
-    <title>Locator</title>
+    <title>@lang('Locator')</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
@@ -344,7 +344,7 @@
                         return getLocationDistance(a) - getLocationDistance(b);
                     });
                 } else {
-                    sectionNameEl.textContent = `All locations (${locations.length})`;
+                    sectionNameEl.textContent = `@lang('All locations') (${locations.length})`;
                 }
                 const resultItemContext = {
                     locations: locations
@@ -543,6 +543,9 @@
           <h1> 
               @lang('GG NO TEAM') 
             </h1>
+            <h3 class="card-title text-center">
+            <a class="btn bg-primary text-white" href="{{ route('home.index') }}">@lang('Home')</a>
+            </h3>
         </center>
 </script>
 </head>
@@ -554,10 +557,10 @@
                 <header>
                     <h1 class="search-title">
                         <img src="https://fonts.gstatic.com/s/i/googlematerialicons/place/v15/24px.svg" />
-                        Find a location near you
+                        @lang('Find a location near you')
                     </h1>
                     <div class="search-input">
-                        <input id="location-search-input" placeholder="Enter your address or zip code">
+                        <input id="location-search-input" placeholder="@lang("Enter your address or zip code")">
                         <div id="search-overlay-search" class="search-input-overlay search">
                             <button id="location-search-button">
                                 <img class="icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/search/v11/24px.svg" alt="Search" />
@@ -566,7 +569,7 @@
                     </div>
                 </header>
                 <div class="section-name" id="location-results-section-name">
-                    All locations
+                    @lang('All locations')
                 </div>
                 <div class="results">
                     <ul id="location-results-list"></ul>
