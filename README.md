@@ -1,3 +1,8 @@
+# Authors:
+## Juan Martin Uribe & Daniel Giraldo
+### Access the [wiki](https://github.com/JuanMartinUribe/ProyIngSoftware/wiki) to view the coding rules and conventions plus additional information
+
+#### Ignore this
 Ejecucion del programa:
 
 Asegurarse de realizar todas las migraciones
